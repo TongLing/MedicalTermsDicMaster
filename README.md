@@ -28,6 +28,8 @@
 
 ### 开发者指南： 该程序的开发运行方法：
 
+1. 下载或克隆本项目到本地目录。
+
 2. 点击这里下载[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)
 
 3. 打开微信开发者工具。在AppID一栏，直接选择"无AppID"，在项目目录一栏，选择 MedicalTermsDicMaster 文件夹所在目录，项目名称可以自选。
