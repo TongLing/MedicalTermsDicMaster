@@ -1,0 +1,112 @@
+<!--ans-ENtoCN-sentences.wxml-->
+
+<view style="text-align:center;padding:50rpx;font-size:36rpx">
+<text >啊哦，程序员GG正在建设这个页面，句子英译中的功能以后说不定会有用哦</text>
+<image src="../../img/tu-left.png"></image>
+<button type ="primary" bindtap="back">返回上一页</button>
+</view>
+
+<!--
+<view class="section" id="topSearch">
+  <icon type="clear" id="searchCancel" class="{{showstatus}}" size="24" bindtap="cancelInput" />
+  <input placeholder="输入查词" value="{{input}}" class="input" type="text" confirm-type="search" bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" />
+</view>
+
+
+
+<scroll-view id="searchResult" class="{{showstatus}}" scroll-y="true" bindscroll="onfocus">
+  <view class="item" id="1" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">engage</view>
+    <view class="Chinese">vt.吸引住,聘用,与..交战</view>
+  </view>
+  <view class="item" id="2" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">environment</view>
+    <view class="Chinese">n.环境,外界,周围,围绕</view>
+  </view>
+  <view class="item" id="3" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enterprise</view>
+    <view class="Chinese">n.企业,事业单位,事业心,进取心</view>
+  </view>
+  <view class="item" id="4" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">encounter</view>
+    <view class="Chinese">vt.不期而遇,遭遇,对抗</view>
+  </view>
+  <view class="item" id="5" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">energy</view>
+    <view class="Chinese">n.能量,活力,精神</view>
+  </view>
+  <view class="item" id="6" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">engineer</view>
+    <view class="Chinese">n.工程师,技师,司机,工兵</view>
+  </view>
+  <view class="item" id="7" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enhance</view>
+    <view class="Chinese">vt提高,增强,加强</view>
+  </view>
+  <view class="item" id="8" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enough</view>
+    <view class="Chinese">adv.足够地,充足地,十分地</view>
+  </view>
+  <view class="item" id="9" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enthusiasm</view>
+    <view class="Chinese">n.热情,热忱,宗教的狂热</view>
+  </view>
+  <view class="item" id="10" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enjoy</view>
+    <view class="Chinese">vt.享有,享受,欣赏,喜欢</view>
+  </view>
+</scroll-view>
+
+
+<view class="container" id="contain" style="background-color: {{bgcolor}}; opacity: {{opacity}};" bindtap="recover">
+
+  <view class="box">
+    <view class="linedown">英译中——句子查询结果</view>
+
+    <view class="textbox">Where there is a will, there is a way.</view>
+    <view class="textbox">有志者，事竟成。</view>
+  </view>
+
+
+  <view class="box">
+    <view class="linedown">双语例句</view>
+    <view class="unit">
+      <view class="sentence-en medium">
+        Where there is a will, there is a way.
+      </view>
+      <view class="sentence-cn small">
+        有志者，事竟成。
+      </view>
+    </view>
+
+    <view class="unit">
+      <view class="sentence-en medium">
+        Where there is a will there is a way . Live and Learn.
+      </view>
+      <view class="sentence-cn small">
+        虽然看过了,还是顶一记。
+      </view>
+    </view>
+
+    <view class="unit">
+      <view class="sentence-en medium">
+       There is another English proverb, that is: " Where there is a will , there is a way.
+      </view>
+      <view class="sentence-cn small">
+        还有一个英语谚语是这样说的: 有志者, 事竟成.
+      </view>
+    </view>
+
+
+  </view>
+
+
+  <view class="unit">
+    <view class="textbox">句子英译中功能正在开发中...</view>
+    <view class="textbox">句子英译中功能正在开发中...</view>
+    <view class="textbox">句子英译中功能正在开发中...</view>
+    <view class="textbox">句子英译中功能正在开发中...</view>
+  </view>
+</view>
+
+-->

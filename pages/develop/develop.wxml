@@ -1,0 +1,13 @@
+<view wx:for="{{news}}" class="pad10" wx:key="id">
+    <view class="left">
+      <image src="{{item.photoURL}}"></image>
+    </view>
+    <view class="right">
+      <view class="up">
+        <text>{{item.head}} </text>
+        <view class="down">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+</view>

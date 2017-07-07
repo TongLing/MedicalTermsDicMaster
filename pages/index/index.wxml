@@ -1,0 +1,52 @@
+<!--index.html-->
+<view class="section" id="topSearch">
+  <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
+  <input placeholder="{{placeholdertxt}}" value="{{input}}" class="input" type="text" confirm-type="search" bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" />
+</view>
+
+<scroll-view id="searchResult" class="{{showstatus}}" scroll-y="true" bindscroll="onfocus">
+  <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap="itemNavigateToAns" bindtouchstart="start" bindtouchend="end" data-index="{{index}}" style="{{item.txtStyle}}">
+    <view class="searchLeft">{{item.input}}</view>
+    <view class="searchRight">
+      <text>{{item.PartOfSpeech}}</text>{{item.output}}</view>
+  </view>
+</scroll-view>
+
+<view class="container" id="contain" bindtap="recover" style="background-color: {{bgcolor}}; opacity: {{opacity}}">
+
+  <view bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">欢迎，{{userInfo.nickName}}！</text>
+  </view>
+
+  <view class="box">
+    <view class="linedown">
+      <text>每日一句</text>
+    </view>
+    <view class="textbox">
+      <text>{{mottoEN}}</text>
+    </view>
+    <view class="textbox small">
+      <text>{{mottoCN}}</text>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="linedown"> <text>双语资讯</text> </view>
+
+  <view wx:for="{{news}}" class="unit" wx:key="id">
+    <view class="left"> <image src="{{item.photoURL}}"></image> </view>
+      <view class="right"> 
+        <view class="up"> <text>{{item.head}} </text> </view>
+        <view class="down"> <text>{{item.content}}</text> </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="linedown"> <text>待添加的内容</text> </view>
+    <view class="textbox">  <text>{{mottoEN}}</text> </view>
+    <view class="textbox"> <text>需要添加额外的内容的话，可以放在这里</text>  </view>
+  </view>
+
+</view>

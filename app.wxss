@@ -1,0 +1,130 @@
+/**app.wxss**/
+
+/**包裹整个页面的view**/
+.container {
+margin-top: 180rpx;
+padding-top: 50rpx;
+} 
+
+.fall {
+margin-top: 180rpx;
+padding-top: 50rpx;
+z-index:99;
+} 
+/**查词框框**/
+.input{
+  border: 1px solid #ccc;
+  padding: 30rpx;
+  margin: 30rpx;
+  border-radius:10rpx;
+  text-align: center;
+  background-color:#fff;
+  font-family: "arial","times","courier";
+}
+
+/**顶端蓝色的边框**/
+#topSearch{
+  position: fixed;
+  top: -1rpx;
+  width:98%;
+  background-color: #4189de;
+  padding:10rpx;
+  z-index: 10;      
+}
+/**每日一句中中英文的样式*/
+.textbox{
+  line-height: 125%;
+  color:#333;
+  margin:15rpx;
+  padding:5rpx;
+  z-index: 0;
+  font-size:32rpx;
+  font-family: "arial","times","courier";
+}
+
+/**最普通的给页面分块的box**/
+.box{
+  padding: 22rpx;
+  margin-top:5rpx;
+  margin-bottom: 5px;
+  z-index:1;  
+
+}
+/**聚焦在输入页面时可以把搜索状态叉掉**/
+#searchCancel{
+  position:fixed;
+    padding: 30rpx;
+  margin-top:30rpx;
+  margin-left:600rpx;
+  margin-bottom: 30rpx;
+  z-index:100;
+}
+/**双语例句*/
+.sentence-en{
+  font-size:32rpx;
+}
+.sentence-cn{
+  font-size:28rpx;
+  color:#666;
+}
+
+/**控制顶端搜索词语结果的大块**/
+#searchResult{
+  position: fixed;
+  max-height: 500rpx;
+  width:100%;
+  background-color:#fff;
+  z-index:8;
+}
+
+/**每一个显示结果的一个小条目**/
+.item{
+  display: flex;
+  height:100rpx;
+  border:1px solid #eee;
+}
+
+/**左边的显示格式**/
+.searchLeft{
+  width:340rpx;
+  margin:22rpx;
+  margin-left:40rpx;
+  margin-right:0px;
+  font-size:36rpx;
+  
+  overflow:hidden;
+}
+/**右的显示格式**/
+.searchRight{
+  font-size:28rpx;
+  margin:22rpx;
+  line-height:150%;
+  width:380rpx;
+  overflow:hidden;
+  color:#aaa;
+}
+
+.linedown{
+  font-size: 26rpx;
+  color:#aaa;
+  margin:10rpx;
+  padding-bottom: 20rpx;
+  border-bottom:1px solid #ddd;
+}
+.big{
+  font-size: 48rpx;
+}
+.medium{
+  font-size:32rpx;
+}
+.small{
+  font-size:28rpx;
+}
+.show{
+  transition-duration: 1s;
+  display: block;
+}
+.hide{
+  transition-duration: 1s;
+  display: none;
+}

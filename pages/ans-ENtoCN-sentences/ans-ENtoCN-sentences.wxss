@@ -1,0 +1,18 @@
+/* ans-ENtoCN-sentences.wxss */
+.unit{
+  margin:10rpx;
+  margin-top: 20rpx;
+  padding:5rpx;
+}
+#searchResult{
+  position: fixed;
+  height:750rpx;
+  width:100%;
+  background-color:#fff;
+  z-index:8;
+}
+
+.highlight{
+  color:#E65F49;
+  font-weight: 600;
+}

@@ -1,0 +1,67 @@
+/**index.wxss**/
+
+
+#hide{
+  display: none;
+}
+
+#show{
+  display: block;
+}
+
+.show{
+  display:;
+}
+
+
+.hide{
+  display: none;
+}
+
+.English-word{
+  text-align: centwer;
+  padding-left:50rpx;
+  font-size:48rpx;
+}
+.unit{
+  margin:10rpx;
+  margin-top: 20rpx;
+  padding:5rpx;
+
+
+}
+.highlight{
+color:#E65F49;
+font-weight: 600;
+}
+
+.voice{
+  display:flex;
+  margin:25rpx;
+  margin-top:0rpx;
+  margin-bottom: 0rpx;
+  padding:0rpx;
+  width:700rpx;
+
+}
+
+.voice-left{
+
+  width:300rpx;
+  padding:10rpx;
+  margin:25rpx;
+}
+.voice-right{
+  width:300rpx;
+  padding:10rpx;
+
+  margin:25rpx;
+}
+
+.medium{
+  font-size:32rpx;
+}
+
+.small{
+  font-size:28rpx;
+}

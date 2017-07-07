@@ -1,0 +1,48 @@
+<!--ans-CNtoEN-sentences.wxml-->
+<!--
+<view style="text-align:center;padding:50rpx;font-size:36rpx">
+<text >啊哦，程序员GG正在建设这个页面，句子英译中的功能以后说不定会有用哦</text>
+<image src="../../img/tu-left.png"></image>
+<button type ="primary" bindtap="back">返回上一页</button>
+</view>
+-->
+
+<view class="section" id="topSearch">
+  <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
+  <input placeholder="{{placeholdertxt}}" value="{{input}}" class="input" type="text" confirm-type="search" bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" />
+</view>
+
+<scroll-view id="searchResult" class="{{showstatus}}" scroll-y="true" bindscroll="onfocus">
+  <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap="itemNavigateToAns" bindtouchstart="start" bindtouchend="end" data-index="{{index}}" style="{{item.txtStyle}}">
+    <view class="searchLeft">{{item.input}}</view>
+    <view class="searchRight">
+      <text>{{item.PartOfSpeech}}</text>{{item.output}}</view>
+  </view>
+</scroll-view>
+
+<view class="container" id="contain" style="background-color: {{bgcolor}}; opacity: {{opacity}};" bindtap="recover">
+
+  <view wx:for="{{resultChineseToEnglishWords}}" class="Chineseword big" wx:key="id">
+    {{item.wordInput}}
+    <text class="medium">{{item.voice}}</text>
+  </view>
+  <view wx:for="{{resultChineseToEnglishWords}}" wx:key="id">
+    <view class="box">
+      <view class="linedown">单词查询结果</view>
+      <view wx:for="{{item.word}}" wx:for-item="word" wx:key="id">
+        <view class="textbox">{{word.partOfSpeech}} {{word.output}}</view>
+      </view>
+    </view>
+
+    <view class="box">
+      <view class="linedown">双语例句</view>
+      <view wx:for="{{item.sentence}}" wx:for-item="sentence" wx:key="id">
+        <view class="unit">
+          <view class="sentence-en medium"> {{sentence.input}} </view>
+          <view class="sentence-cn small"> {{sentence.output}} </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

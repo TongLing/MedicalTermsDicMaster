@@ -1,0 +1,118 @@
+<!--index.html-->
+
+
+<view style="text-align:center;padding:50rpx;font-size:36rpx">
+<text >啊哦，程序员GG正在建设这个页面，句子中译英的功能以后说不定会有用哦</text>
+<image src="../../img/tu-left.png"></image>
+<button type ="primary" bindtap="back">返回上一页</button>
+</view>
+
+<!--
+
+<view class="section" id="topSearch">
+  <icon type="clear" id="searchCancel" class="{{showstatus}}" size="24" bindtap="cancelInput" />
+  <input placeholder="输入查词" value="{{input}}" id ="{{input}}" class="input" type="text"  bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" bindlongtap="clear" />
+</view>
+
+<scroll-view id="searchResult" class="{{showstatus}}" scroll-y="true" bindscroll="onfocus">
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">engage</view>
+    <view class="Chinese">vt.吸引住,聘用,与..交战</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">environment</view>
+    <view class="Chinese">n.环境,外界,周围,围绕</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enterprise</view>
+    <view class="Chinese">n.企业,事业单位,事业心,进取心</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">encounter</view>
+    <view class="Chinese">vt.不期而遇,遭遇,对抗</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">energy</view>
+    <view class="Chinese">n.能量,活力,精神</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">engineer</view>
+    <view class="Chinese">n.工程师,技师,司机,工兵</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enhance</view>
+    <view class="Chinese">vt.提高,增强,加强</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enough</view>
+    <view class="Chinese">adv.足够地,充足地,十分地</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enthusiasm</view>
+    <view class="Chinese">n.热情,热忱,宗教的狂热</view>
+  </view>
+  <view class="item" style="background-color:{{itemcolor}}" bindtap="itemNavigateToAns">
+    <view class="English">enjoy</view>
+    <view class="Chinese">vt.享有,享受,欣赏,喜欢</view>
+  </view>
+</scroll-view>
+
+
+<view class="container" id="contain" style="background-color: {{bgcolor}}; opacity: {{opacity}};" bindtap="recover">
+
+  <view class="English-word">
+    <text>engage</text>
+  </view>
+
+  <view class="voice">
+    <view class="voice-left small">英[ɪnˈgeɪdʒ]
+      <image class="AmericanAccent" src="../../img/sound-icon.png" style="width:36rpx;height:36rpx;z-index:0"></image>
+    </view>
+    <view class="voice-right small">美[ɪn'gedʒ]
+      <image class="BritishAccent" src="../../img/sound-icon.png" style="width:36rpx;height:36rpx;z-index:0"></image>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="linedown">单词查询结果</view>
+
+    <view class="textbox">vt. 吸引住；聘用；与...交战</view>
+    <view class="textbox">vi. 与...建立联系，从事，与...紧密结合</view>
+    <view class="textbox">vt. engage </view>
+  </view>
+
+  <view class="box">
+    <view class="linedown">双语例句</view>
+    <view class="unit">
+      <view class="sentence-en medium">
+        You can
+        <text class="highlight">engage</text> in croquet on the south lawn.
+      </view>
+      <view class="sentence-cn small">
+        你可以参加南边草坪上的槌球游戏。
+      </view>
+    </view>
+
+    <view class="unit">
+      <view class="sentence-en medium">
+        Press the lever until you hear the catch
+        <text class="highlight">engage</text>.
+      </view>
+      <view class="sentence-cn small">
+        压下挡杆，直到听到挡挂好。
+      </view>
+    </view>
+
+    <view class="unit">
+      <view class="sentence-en medium">
+        They never learned skills to
+        <text class="highlight">engage</text> the attention of the others.
+      </view>
+      <view class="sentence-cn small">
+        他们从未学过吸引他人注意的技巧。
+      </view>
+    </view>
+  </view>   
+</view>
+
+-->
