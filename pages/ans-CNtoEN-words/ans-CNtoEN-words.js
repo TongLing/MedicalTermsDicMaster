@@ -81,7 +81,8 @@ onfocus: function (e) {
 offfocus: function () {
   this.setData({
     opacity: '1.0',
-    bgcolor: '#fff'
+    bgcolor: '#fff',
+    XXshowstatus:'hide'
   })
 },
 bindViewTap: function () {

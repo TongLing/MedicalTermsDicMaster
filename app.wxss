@@ -105,7 +105,6 @@ z-index:99;
 }
 
 .linedown{
-  font-size: 26rpx;
   color:#aaa;
   margin:10rpx;
   padding-bottom: 20rpx;

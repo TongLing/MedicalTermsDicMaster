@@ -28,14 +28,14 @@
   </view>
   <view wx:for="{{resultChineseToEnglishWords}}" wx:key="id">
     <view class="box">
-      <view class="linedown">单词查询结果</view>
+      <view class="linedown small">单词查询结果</view>
       <view wx:for="{{item.word}}" wx:for-item="word" wx:key="id">
         <view class="textbox">{{word.partOfSpeech}} {{word.output}}</view>
       </view>
     </view>
 
     <view class="box">
-      <view class="linedown">双语例句</view>
+      <view class="linedown small">双语例句</view>
       <view wx:for="{{item.sentence}}" wx:for-item="sentence" wx:key="id">
         <view class="unit">
           <view class="sentence-en medium"> {{sentence.input}} </view>

@@ -6,7 +6,7 @@ var jsonSource = require('../utils/jsonSource.js')
 function loadSearchListData(str){
   jsonSource.initSource();
   //在候选页面加载data系列的json
-  console.log("searchList.loadData: 当前传入的字符串参数是" + str);
+  //console.log("searchList.loadData: 当前传入的字符串参数是" + str);
   var nil = "";
   var str = util.trim(str);//字符串格式化
 

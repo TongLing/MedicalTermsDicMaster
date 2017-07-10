@@ -107,36 +107,14 @@ function CountIfChineseWord(str) {
 
 //判断字符串中中文汉字有几个
 function CountChineseWordNum(str){
-  str = trim(str)
+  str = trim(str);
   //正则表达式，匹配中文
   var reg = /[\u4e00-\u9fa5]/g;
   var isChinese = reg.test(str);
-  if (reg.test(str)) {
-    var ChineseWordCount = str.match(reg).length;
-  } else {
-    var ChineseWordCount = 0;
-  }
+  if (isChinese) { var ChineseWordCount = str.match(reg).length; } else {var ChineseWordCount = 0}
   return ChineseWordCount;
 }
 
-function ChangeListStatus(str){
-  var showstatus = "hide"
-  var str = trim(str);
-  var hasEnglish = CountIfEnglishWord(str);
-  var EnglishWordCount = CountEnglishWordNum(str);
-
-  var hasChinese = CountIfChineseWord(str);
-  var ChineseWordCount = CountChineseWordNum(str);
-
-  if (hasEnglish == true && hasChinese == false && EnglishWordCount == 1){
-    showstatus = "show";
-  } else if (hasChinese = true && hasEnglish == false && ChineseWordCount >= 1 && ChineseWordCount <= 4){
-    showstatus = "show";
-  } else{
-    showstatus = "hide";
-  }
-  return showstatus;
-}
 
 module.exports = {
   formatTime: formatTime,
@@ -144,7 +122,7 @@ module.exports = {
   CountIfEnglishWord:  CountIfEnglishWord,
   CountEnglishWordNum: CountEnglishWordNum,
   CountIfChineseWord:  CountIfChineseWord,
-  CountChineseWordNum: CountChineseWordNum,
-  ChangeListStatus:    ChangeListStatus
+  CountChineseWordNum: CountChineseWordNum
+
 }
 

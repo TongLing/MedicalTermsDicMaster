@@ -28,19 +28,20 @@ Page({
     
     news: [], //双语资讯部分的内容
 
-    //不知道这个变量是干嘛的，但是一删了这个变量就会报错_(:зゝ∠)_
+    //不知道这个变量是干嘛的，但是一删了这个变量就会出bug
     num: '1',
   },
   onLoad: function () {
     var mottoEN = jsonSource.initMotto("EN");
     var mottoCN = jsonSource.initMotto("CN")
     var news  = jsonSource.initNews();
-    var that = this;
+
     this.setData({
       mottoEN:mottoEN,
       mottoCN:mottoCN,
       news: news,
     })
+    var that = this;
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
@@ -89,6 +90,7 @@ Page({
   //2输入框失去焦点时回复遮罩层颜色
   offfocus: function () {
     this.setData({
+      XXshowstatus:'hide',
       opacity: '1.0',
       bgcolor: '#fff'
     })
@@ -111,11 +113,12 @@ Page({
   //监听框框中的字符
   inputchar: function (e) {
     var str = e.detail.value;
+    //console.log(str);
     // 监听搜索框的叉叉显示情况
     var XXshowstatus = (str == "" ? "hide" : "show");
     //根据输入情况，自动判断是否弹出选择框
     var showstatus = css.ChangeListStatus(str);
-    //动态加载里面的list，加载的方法根据传递的字符串决定
+    //动态加载里面的list，加载的方法根据传递的字符串决定 
     var list = searchList.loadSearchListData(str);
     this.setData({
       list:list,

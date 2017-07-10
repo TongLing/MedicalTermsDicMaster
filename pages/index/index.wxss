@@ -50,7 +50,7 @@
 
 /**右边一块上，下的写法**/
 .up{   
-  font-size:32rpx;
+
   line-height: 150%;
   color:#666;    
   padding:5rpx;
@@ -60,7 +60,7 @@
   border-bottom: 1px solid #ccc;
 }
 .down{
-  font-size: 26rpx;
+
   color:#666;
   margin-top: 16rpx;
   margin-bottom:8rpx;
