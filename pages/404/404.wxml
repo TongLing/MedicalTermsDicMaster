@@ -2,8 +2,6 @@
 
 
 <view style="text-align:center;margin:20rpx;margin-top:100rpx;">
-
-
 <view class = "big" >啊哦，这里没有你要的单词</view>
 
 <image src="../../img/1441324072.png" style="height=322rpx; width:400rpx; " ></image>

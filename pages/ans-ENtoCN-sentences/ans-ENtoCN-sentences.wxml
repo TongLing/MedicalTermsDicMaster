@@ -1,7 +1,7 @@
 <!--ans-ENtoCN-sentences.wxml-->
 
 <view style="text-align:center;padding:50rpx;font-size:36rpx">
-<text >啊哦，程序员GG正在建设这个页面，句子英译中的功能以后说不定会有用哦</text>
+<text ><text class = "big">句子翻译——英译中功能暂未开放</text></text>
 <image src="../../img/tu-left.png"></image>
 <button type ="primary" bindtap="back">返回上一页</button>
 </view>

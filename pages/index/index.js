@@ -32,8 +32,11 @@ Page({
     num: '1',
   },
   onLoad: function () {
+    //每日一句部分更新
     var mottoEN = jsonSource.initMotto("EN");
-    var mottoCN = jsonSource.initMotto("CN")
+    var mottoCN = jsonSource.initMotto("CN");
+
+    //新闻部分更新
     var news  = jsonSource.initNews();
 
     this.setData({
@@ -120,6 +123,43 @@ Page({
     var showstatus = css.ChangeListStatus(str);
     //动态加载里面的list，加载的方法根据传递的字符串决定 
     var list = searchList.loadSearchListData(str);
+    
+    // wx.request写好以后，就把loadSearchListData那个函数去掉了。
+    // 传过去的参数要那几个？
+
+    // input = "string", language = "English", type = Words || sentences, onShowMethod = "list&result"
+    //  input: 用户的查询输入
+    //  language: 判断输入的是中文还是英文
+    //  type: 要查的是单词还是句子
+    //  onshowmethod: list&result  查询的结果返回的格式是候选框，还是结果页？
+    //
+    //
+    //
+    /*
+wx.request({        
+      url: 'yixueshuyuzhushou.club/', //仅为示例
+      data: {                          
+        input: '',                    // 用户输入的查询值
+        language: '',                 // 输入的语言，English & Chinese
+        searchType:'',                // 想要查词还是查句子，words & sentences,回调的json数据不一样。
+        onShowMethod:''               // 是在下拉列表list里面展示，还是开一个新的页面展示，回调的json数据都不同。
+     },
+     header: {
+       'content-type': 'application/json'
+    },
+  success: function(res) { //请求成功后的回调函数，res为请求内容
+    //...在这里把获得的json数据，用JS绑定到界面上
+  },
+  fail: function(res){
+    //...记录失败信息
+  },
+   complete: function(res){
+    //.. debug for use
+   }
+
+})
+
+     */
     this.setData({
       list:list,
       showstatus:showstatus,
@@ -143,16 +183,42 @@ Page({
     第四类，句子英译中 输入英文句子 输出中文翻译     page: ENtoCN-sentences 这个暂时留空，不用做
      */
     /**这一段是判断用户输入字符逻辑的，根据用户输入的不同内容，查询不同的页面*/
-    
+
     var str = e.detail.value;
     str = util.trim(str); //过滤多余空格
     var pageType = pageSkip.getResultType(str);
     //给新页面传递参数
-    var navENtoCNwords     = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
-    var navCNtoENwords     = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
+    var navENtoCNwords = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
+    var navCNtoENwords = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
     var navCNtoENsentences = "../ans-CNtoEN-sentences/ans-CNtoEN-sentences?input=" + str;
     var navEntoCNsentences = "../ans-ENtoCN-sentences/ans-ENtoCN-sentences?input=" + str;
     var nav404 = "../404/404?input=" + str;
+/*
+wx.request({        
+      url: 'yixueshuyuzhushou.club/', //仅为示例
+      data: {                          
+        input: '',                    // 用户输入的查询值
+        language: '',                 // 输入的语言，English & Chinese
+        searchType:'',                // 想要查词还是查句子，words & sentences,回调的json数据不一样。
+        onShowMethod:''               // 是在下拉列表list里面展示，还是开一个新的页面展示，回调的json数据都不同。
+     },
+     header: {
+       'content-type': 'application/json'
+    },
+  success: function(res) { //请求成功后的回调函数，res为请求内容
+
+    //...在这里把获得的json数据，用JS绑定到界面上
+  },
+  fail: function(res){
+    //...记录失败信息
+  },
+   complete: function(res){
+    //.. debug for use
+   }
+
+})
+  
+    */
     /**开始跳转页面 */
     if (pageType =="ENtoCNwords"){
       wx.navigateTo({
@@ -191,9 +257,45 @@ Page({
   },
   itemNavigateToAns: function (e) {
 
+
+    // input = "string", language = "English", type = Words || sentences, onShowMethod = "list&result"
+    //  input: 用户的查询输入
+    //  language: 判断输入的是中文还是英文
+    //  type: 要查的是单词还是句子
+    //  onshowmethod: list&result  查询的结果返回的格式是候选框，还是结果页？
+    //
+    //
+    //
+    /*
+wx.request({        
+      url: 'yixueshuyuzhushou.club/', //仅为示例
+      data: {                          
+        input: '',                    // 用户输入的查询值
+        language: '',                 // 输入的语言，English & Chinese
+        searchType:'',                // 想要查词还是查句子，words & sentences,回调的json数据不一样。
+        onShowMethod:''               // 是在下拉列表list里面展示，还是开一个新的页面展示，回调的json数据都不同。
+     },
+     header: {
+       'content-type': 'application/json'
+    },
+  success: function(res) { //请求成功后的回调函数，res为请求内容
+    //...在这里把获得的json数据，用JS绑定到界面上
+  },
+  fail: function(res){
+    //...记录失败信息
+  },
+   complete: function(res){
+    //.. debug for use
+   }
+
+})
+  
+     */
+    //获取列表中每个候选项目的字符串数据，用来传递页面参数
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
     var str = list[index].input;
+    //list[index].input就是当前点击的列表项，index代表第n个
     console.log(str);
     //参数跳转方法
     var navENtoCNwords = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
