@@ -14,7 +14,7 @@ Page({
  */
 data: {
     input:'',
-    resultChineseToEnglishWords: [],
+    result: [{ "input": "1", "output": "2", "source": "3" }, { "input": "4", "output": "5", "source": "6" }],
 
     //搜索框部分
     opacity: '1.0', //输入时的遮罩层透明度
@@ -30,12 +30,66 @@ data: {
   },
 //事件处理函数
 onLoad: function (query) {
-  jsonSource.initSource();
-  var resultChineseToEnglishWords = jsonSource.getSource("resultChineseToEnglishWords")
-  console.log(resultChineseToEnglishWords);
+
+  if (util.CountIfEnglishWord(query.input) == false){
+    wx.request({
+      url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
+      data: {
+        "language": "Chinese",
+        "type": "sentence",
+        "query": query.input,
+      },
+      success: res => {
+
+        var list = [];
+        if (typeof (res.data) == "string") {
+          //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+          var parse = util.clearBr(res.data);
+          list = JSON.parse(parse);
+          jsonSource.setSource(parse);
+        }
+        else {
+          //如果直接变成object的话，就可以直接用了
+          jsonSource.setSource(res.data);
+          list = res.data;
+        }
+
+        this.setData({
+          result: list,
+        })
+      }
+    })
+  }else{
+    wx.request({
+      url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
+      data: {
+        "language": "English",
+        "type": "sentence",
+        "query": query.input
+      },
+      success: res => {
+        var list = [];
+        if (typeof (res.data) == "string" && res.data != "") {
+          //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+          var parse = util.clearBr(res.data);
+          list = JSON.parse(parse);
+          jsonSource.setSource(parse);
+        }
+        else {
+          //如果直接变成object的话，就可以直接用了
+          jsonSource.setSource(res.data);
+          list = res.data;
+        }
+        this.setData({
+          result: list,
+        })
+      }
+    })
+  }
+
   this.setData({
+    //设定最上面的那个值
     input: query.input,
-    resultChineseToEnglishWords: resultChineseToEnglishWords
   })
 },
 back: function () {
@@ -108,9 +162,73 @@ cancelInput: function () {
     //根据输入情况，自动判断是否弹出选择框
     var showstatus = css.ChangeListStatus(str);
     //动态加载里面的list，加载的方法根据传递的字符串决定
-    var list = searchList.loadSearchListData(str);
+
+    if (util.input_is_valid(str)) {
+      if (util.CountIfEnglishWord(str) == false){
+        wx.request({
+          url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
+          data: {
+            "language": "Chinese",
+            "type": "sentence",
+            "query": str
+          },
+          success: res => {
+
+            var list = [];
+            if (typeof (res.data) == "string") {
+              //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+              var parse = util.clearBr(res.data);
+              list = JSON.parse(parse);
+              jsonSource.setSource(parse);
+            }
+            else {
+              //如果直接变成object的话，就可以直接用了
+              jsonSource.setSource(res.data);
+              list = res.data;
+            }
+
+            this.setData({
+              list: list,
+              showstatus: showstatus,
+              XXshowstatus: XXshowstatus
+            })
+          }
+        })
+      }
+      else if (util.CountIfEnglishWord(str) == true) {
+        wx.request({
+          url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
+          data: {
+            "language": "English",
+            "type": "sentence",
+            "query": str
+          },
+          success: res => {
+            var list = [];
+            if (typeof (res.data) == "string" && res.data != "") {
+              //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+              var parse = util.clearBr(res.data);
+              list = JSON.parse(parse);
+              jsonSource.setSource(parse);
+            }
+            else {
+              //如果直接变成object的话，就可以直接用了
+              jsonSource.setSource(res.data);
+              list = res.data;
+            }
+
+            this.setData({
+              list: list,
+              showstatus: showstatus,
+              XXshowstatus: XXshowstatus
+            })
+          }
+        })
+      }
+    }   
+  
+    
     this.setData({
-      list: list,
       showstatus: showstatus,
       XXshowstatus: XXshowstatus
     })
@@ -124,13 +242,6 @@ recover: function () {
   })
 },
 navigateToAns: function (e) {
-  /*根据不同的查词条件，返回不同的页面结构，主要分为四类：
-  第一类，单词英译中 输入英文单词 输出多个中文释义 page: ENtoCN-words: 样例词语：engage
-  第二类：单词中译英 输入中文单词 输出多个英文释义 page: CNtoEN-words: 样例词语：参加
-  第三类，句子中译英 输入中文句子 输出英文翻译     page: CNtoEN-sentences 这个暂时留空，不用做
-  第四类，句子英译中 输入英文句子 输出中文翻译     page: ENtoCN-sentences 这个暂时留空，不用做
-   */
-  /**这一段是判断用户输入字符逻辑的，根据用户输入的不同内容，查询不同的页面*/
 
   var str = e.detail.value;
   str = util.trim(str); //过滤多余空格
@@ -142,32 +253,16 @@ navigateToAns: function (e) {
   var navEntoCNsentences = "../ans-ENtoCN-sentences/ans-ENtoCN-sentences?input=" + str;
   var nav404 = "../404/404?input=" + str;
   /**开始跳转页面 */
-  if (pageType == "ENtoCNwords") {
-    wx.navigateTo({
-      url: navENtoCNwords,
-    })
-  } else if (pageType == "CNtoENwords") {
-    wx.navigateTo({
-      url: navCNtoENwords,
-    })
-  }
-  else if (pageType == "CNtoENsentences") {
-    console.log('句子中译英')
-    wx.navigateTo({
-      url: navCNtoENsentences,
-    })
-  }
-  else if (pageType == "ENtoCNsentences") {
-    console.log('句子英译中')
-    wx.navigateTo({
-      url: navEntoCNsentences,
-    })
-  }
-  else {  /**除了这四种输入以外，经过trim过滤字符，数字后还没搞定的情况，直接跳到404处理 */
+  if (pageType == "ERROR") {
     wx.navigateTo({
       url: '../404/404',
     })
   }
+  else{
+    wx.redirectTo({
+      url: navCNtoENwords,
+    })
+  } 
   //异步处理，跳过去之后把原来的页面重置
   this.setData({
     input: '',
@@ -179,10 +274,11 @@ navigateToAns: function (e) {
 },
 itemNavigateToAns: function (e) {
 
+  //获取列表中每个候选项目的字符串数据，用来传递页面参数
   var index = e.currentTarget.dataset.index;
   var list = this.data.list;
   var str = list[index].input;
-  console.log(str);
+  //list[index].input就是当前点击的列表项，index代表第n个
   //参数跳转方法
   var navENtoCNwords = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
   var navCNtoENwords = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
@@ -190,12 +286,13 @@ itemNavigateToAns: function (e) {
 
   var inputHasEnglish = util.CountIfEnglishWord(str);
   var inputHasChinese = util.CountIfChineseWord(str);
+
   if (inputHasEnglish) {
-    wx.navigateTo({
-      url: navENtoCNwords,
+    wx.redirectTo({
+      url: navCNtoENwords,
     })
   } else if (inputHasChinese) {
-    wx.navigateTo({
+    wx.redirectTo({
       url: navCNtoENwords,
     })
   } else {
@@ -204,7 +301,6 @@ itemNavigateToAns: function (e) {
     })
   }
   this.setData({
-    input: "",
     opacity: '1.0',
     bgcolor: '#fff',
     showstatus: 'hide',

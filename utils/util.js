@@ -27,6 +27,17 @@ function stripTrim(s)
   }
   return rs;
 }
+//去除换行 
+function clearBr(key) {
+  key = key.replace(/<\/?.+?>/g, "");
+  key = key.replace(/[\r\n]/g, "");
+  return key;
+} 
+//去除空格
+function clearSpace(key){
+  key = key.replace(/\s+/g, "");
+  return key; 
+}
 
 //去掉字符串左边的空白和空格
 function trimLeft(s) {
@@ -81,6 +92,29 @@ function CountIfEnglishWord(str){
   return isEnglish;
 }
 
+//判断输入的字符是否合法，然后再发送请求到网页，否则的话请求太多了，搞不过来
+function input_is_valid(str){
+  //既有中文又有英文时候就不发，没有中文也没有英文时肯定也不发
+  if (CountIfEnglishWord(str) == true && CountIfChineseWord(str) == true){
+    return false;
+  }
+  if (CountIfEnglishWord(str) == false && CountIfChineseWord(str) == false){
+    return false;
+  }
+  
+  //英文字符数量大于3 且没有'符号时，可以通过
+  if (str.length >= 3 && CountIfChineseWord(str)==false && str.indexOf("'") == -1)
+  {
+    //console.log("英文字符数量大于3 且没有'符号时，可以通过");
+    return true;
+  }
+  //中文字符数量大于等于1时可以通过
+  if (CountChineseWordNum(str) >= 1 && CountIfEnglishWord(str) == false ) {
+   // console.log("中文汉字数大于等于1，true");
+    return true;
+  }
+  return false;
+}
 //判断字符串中英文单词有几个
 function CountEnglishWordNum(str){
   str = trim(str);
@@ -122,7 +156,9 @@ module.exports = {
   CountIfEnglishWord:  CountIfEnglishWord,
   CountEnglishWordNum: CountEnglishWordNum,
   CountIfChineseWord:  CountIfChineseWord,
-  CountChineseWordNum: CountChineseWordNum
-
+  CountChineseWordNum: CountChineseWordNum,
+  input_is_valid: input_is_valid,
+  clearBr: clearBr,
+  clearSpace: clearSpace
 }
 

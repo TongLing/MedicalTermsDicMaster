@@ -1,11 +1,8 @@
 var util = require('../utils/util.js')
 
 function getResultType(str){
-  console.log("getResultTypeStart");
   var hasEnglish = util.CountIfEnglishWord(str);
   var EnglishWordCount = util.CountEnglishWordNum(str);
-  console.log("有英文吗?" + hasEnglish);
-  console.log("英文单词数量" + EnglishWordCount);
 
   var hasChinese = util.CountIfChineseWord(str);
   var ChineseWordCount = util.CountChineseWordNum(str);

@@ -16,33 +16,25 @@
   <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap="itemNavigateToAns" bindtouchstart="start" bindtouchend="end" data-index="{{index}}" style="{{item.txtStyle}}">
     <view class="searchLeft">{{item.input}}</view>
     <view class="searchRight">
-      <text>{{item.PartOfSpeech}}</text>{{item.output}}</view>
+      {{item.output}}</view>
   </view>
 </scroll-view>
 
+
 <view class="container" id="contain" style="background-color: {{bgcolor}}; opacity: {{opacity}};" bindtap="recover">
-
-  <view wx:for="{{resultChineseToEnglishWords}}" class="Chineseword big" wx:key="id">
-    {{item.wordInput}}
-    <text class="medium">{{item.voice}}</text>
+  <view class="Chineseword box">
+    {{input}}
   </view>
-  <view wx:for="{{resultChineseToEnglishWords}}" wx:key="id">
-    <view class="box">
-      <view class="linedown small">单词查询结果</view>
-      <view wx:for="{{item.word}}" wx:for-item="word" wx:key="id">
-        <view class="textbox">{{word.partOfSpeech}} {{word.output}}</view>
+  <view class="box">    
+    <view class="linedown small">
+      <text>常用释义</text>
+    </view>
+    <view wx:for="{{result}}" wx:key="{{index}}" class="results" data-index="{{index}}" >
+      <view class ="main">
+        <view class ="left medium">{{item.input}}</view> 
+        <view class = "right medium">{{item.output}}</view> 
+        <view class ="source small"> {{item.source}}</view> 
       </view>
     </view>
-
-    <view class="box">
-      <view class="linedown small">双语例句</view>
-      <view wx:for="{{item.sentence}}" wx:for-item="sentence" wx:key="id">
-        <view class="unit">
-          <view class="sentence-en medium"> {{sentence.input}} </view>
-          <view class="sentence-cn small"> {{sentence.output}} </view>
-        </view>
-      </view>
-    </view>
-
   </view>
 </view>

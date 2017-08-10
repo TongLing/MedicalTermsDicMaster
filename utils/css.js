@@ -15,9 +15,9 @@ function ChangeListStatus(str) {
   var hasChinese = util.CountIfChineseWord(str);
   var ChineseWordCount = util.CountChineseWordNum(str);
 
-  if (hasEnglish == true && hasChinese == false && EnglishWordCount == 1) {
+  if (hasEnglish == true && hasChinese == false && EnglishWordCount >= 1) {
     showstatus = "show";
-  } else if (hasChinese = true && hasEnglish == false && ChineseWordCount >= 1 && ChineseWordCount <= 4) {
+  } else if (hasChinese = true && hasEnglish == false && ChineseWordCount >= 1) {
     showstatus = "show";
   } else {
     showstatus = "hide";

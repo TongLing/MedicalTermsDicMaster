@@ -8,7 +8,7 @@
   <view wx:for="{{list}}" wx:key="{{index}}" class="item" bindtap="itemNavigateToAns" bindtouchstart="start" bindtouchend="end" data-index="{{index}}" style="{{item.txtStyle}}">
     <view class="searchLeft">{{item.input}}</view>
     <view class="searchRight">
-      <text>{{item.PartOfSpeech}} </text>{{item.output}}</view>
+      {{item.output}}</view>
   </view>
 </scroll-view>
 
@@ -23,14 +23,29 @@
     <view class="linedown small">
       <text>每日一句</text>
     </view>
-    <view class="textbox">
+    <view class="textbox big">
       <text>{{mottoEN}}</text>
     </view>
-    <view class="textbox small">
+    <view class="textbox medium">
       <text>{{mottoCN}}</text>
     </view>
   </view>
 
+  
+  <view class="box">
+    <view class="linedown small">
+      <text>学术翻译必备词汇</text>
+    </view>
+    <view class="textbox big" style="color:white">
+      <text>{{mottoEN}}</text>
+    </view>
+    <view class="textbox medium"style="color:white">
+      <text>{{mottoCN}}</text>
+    </view>
+  </view>
+
+
+<!-- 
   <view class="box">
     <view class="linedown small"> <text>双语资讯</text> </view>
 
@@ -48,5 +63,5 @@
     <view class="textbox">  <text>{{mottoEN}}</text> </view>
     <view class="textbox small"> <text>需要添加额外的内容的话，可以放在这里</text>  </view>
   </view>
-
+-->
 </view>

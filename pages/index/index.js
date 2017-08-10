@@ -29,16 +29,14 @@ Page({
     news: [], //双语资讯部分的内容
 
     //不知道这个变量是干嘛的，但是一删了这个变量就会出bug
-    num: '1',
   },
   onLoad: function () {
     //每日一句部分更新
-    var mottoEN = jsonSource.initMotto("EN");
-    var mottoCN = jsonSource.initMotto("CN");
+    var mottoEN = jsonSource.getDailySentence("EN");
+    var mottoCN = jsonSource.getDailySentence("CN");
 
     //新闻部分更新
-    var news  = jsonSource.initNews();
-
+    var news  = jsonSource.getNews();
     this.setData({
       mottoEN:mottoEN,
       mottoCN:mottoCN,
@@ -116,55 +114,88 @@ Page({
   //监听框框中的字符
   inputchar: function (e) {
     var str = e.detail.value;
+    var search = e.detail.value;
     //console.log(str);
     // 监听搜索框的叉叉显示情况
     var XXshowstatus = (str == "" ? "hide" : "show");
     //根据输入情况，自动判断是否弹出选择框
     var showstatus = css.ChangeListStatus(str);
     //动态加载里面的list，加载的方法根据传递的字符串决定 
-    var list = searchList.loadSearchListData(str);
     
-    // wx.request写好以后，就把loadSearchListData那个函数去掉了。
-    // 传过去的参数要那几个？
 
-    // input = "string", language = "English", type = Words || sentences, onShowMethod = "list&result"
-    //  input: 用户的查询输入
-    //  language: 判断输入的是中文还是英文
-    //  type: 要查的是单词还是句子
-    //  onshowmethod: list&result  查询的结果返回的格式是候选框，还是结果页？
-    //
-    //
-    //
-    /*
-wx.request({        
-      url: 'yixueshuyuzhushou.club/', //仅为示例
-      data: {                          
-        input: '',                    // 用户输入的查询值
-        language: '',                 // 输入的语言，English & Chinese
-        searchType:'',                // 想要查词还是查句子，words & sentences,回调的json数据不一样。
-        onShowMethod:''               // 是在下拉列表list里面展示，还是开一个新的页面展示，回调的json数据都不同。
-     },
-     header: {
-       'content-type': 'application/json'
-    },
-  success: function(res) { //请求成功后的回调函数，res为请求内容
-    //...在这里把获得的json数据，用JS绑定到界面上
-  },
-  fail: function(res){
-    //...记录失败信息
-  },
-   complete: function(res){
-    //.. debug for use
-   }
+    if (util.input_is_valid(str)){
+      if(util.CountIfEnglishWord(str)==false){
+        wx.request({
+          url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
+          data: {
+            "language": "Chinese",
+            "type": "sentence",
+            "query": search
+          },
+          success: res => {
+            var list = [];
+            if(typeof(res.data)=="string" && res.data != ""){
+              //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+              var parse = util.clearBr(res.data);
+              list = JSON.parse(parse); 
+              jsonSource.setSource(parse);
+            }
+            else{
+              //如果直接变成object的话，就可以直接用了
+              jsonSource.setSource(res.data);
+              list = res.data;
+            }
 
-})
+            this.setData({
+              list: list,
+              showstatus: showstatus,
+              XXshowstatus: XXshowstatus
+            })
+          }
+        })
+      }
+      else if(util.CountIfEnglishWord(str) == true){
+        wx.request({
+          url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
+          data: {
+            "language": "English",
+            "type": "sentence",
+            "query": search
+          }, 
+          success: res => {
+            var list = [];
+            if (typeof (res.data) == "string" && res.data != "") {
+              //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+              var parse = util.clearBr(res.data);
+              list = JSON.parse(parse);
+              jsonSource.setSource(parse);
+            }
+            else {
+              //如果直接变成object的话，就可以直接用了
+              jsonSource.setSource(res.data);
+              list = res.data;
+            }
 
-     */
+            this.setData({
+              list: list,
+              showstatus: showstatus,
+              XXshowstatus: XXshowstatus
+            })
+          }
+        })
+      }
+    }
+    else{
+      this.setData({
+        list: "[{}]"
+      })
+    }
+
     this.setData({
-      list:list,
       showstatus:showstatus,
       XXshowstatus:XXshowstatus
     })
+    
   },
   //5当跳出遮罩栏和搜索结果栏时，点击任意的外部界面使其恢复正常，去掉搜索结果栏和遮罩栏
   recover: function () {
@@ -176,13 +207,6 @@ wx.request({
   },
   //跳转到查词结果页面
   navigateToAns: function (e) {
-    /*根据不同的查词条件，返回不同的页面结构，主要分为四类：
-    第一类，单词英译中 输入英文单词 输出多个中文释义 page: ENtoCN-words: 样例词语：engage
-    第二类：单词中译英 输入中文单词 输出多个英文释义 page: CNtoEN-words: 样例词语：参加
-    第三类，句子中译英 输入中文句子 输出英文翻译     page: CNtoEN-sentences 这个暂时留空，不用做
-    第四类，句子英译中 输入英文句子 输出中文翻译     page: ENtoCN-sentences 这个暂时留空，不用做
-     */
-    /**这一段是判断用户输入字符逻辑的，根据用户输入的不同内容，查询不同的页面*/
 
     var str = e.detail.value;
     str = util.trim(str); //过滤多余空格
@@ -193,57 +217,14 @@ wx.request({
     var navCNtoENsentences = "../ans-CNtoEN-sentences/ans-CNtoEN-sentences?input=" + str;
     var navEntoCNsentences = "../ans-ENtoCN-sentences/ans-ENtoCN-sentences?input=" + str;
     var nav404 = "../404/404?input=" + str;
-/*
-wx.request({        
-      url: 'yixueshuyuzhushou.club/', //仅为示例
-      data: {                          
-        input: '',                    // 用户输入的查询值
-        language: '',                 // 输入的语言，English & Chinese
-        searchType:'',                // 想要查词还是查句子，words & sentences,回调的json数据不一样。
-        onShowMethod:''               // 是在下拉列表list里面展示，还是开一个新的页面展示，回调的json数据都不同。
-     },
-     header: {
-       'content-type': 'application/json'
-    },
-  success: function(res) { //请求成功后的回调函数，res为请求内容
-
-    //...在这里把获得的json数据，用JS绑定到界面上
-  },
-  fail: function(res){
-    //...记录失败信息
-  },
-   complete: function(res){
-    //.. debug for use
-   }
-
-})
-  
-    */
-    /**开始跳转页面 */
-    if (pageType =="ENtoCNwords"){
+    if (pageType == "ERROR"){
       wx.navigateTo({
-        url: navENtoCNwords,
-      })
-    } else if (pageType == "CNtoENwords") {
-      wx.navigateTo({
-        url: navCNtoENwords,
-      })
+        url: nav404,
+      }) 
     }
-    else if (pageType == "CNtoENsentences") { 
-      console.log('句子中译英')
+    else{
       wx.navigateTo({
-        url: navCNtoENsentences,
-      })
-    }
-    else if (pageType == "ENtoCNsentences") { 
-      console.log('句子英译中')
-      wx.navigateTo({
-        url: navEntoCNsentences,
-      })
-    }
-    else {  /**除了这四种输入以外，经过trim过滤字符，数字后还没搞定的情况，直接跳到404处理 */
-      wx.navigateTo({
-        url: '../404/404',
+        url: navCNtoENwords
       })
     }
     //异步处理，跳过去之后把原来的页面重置
@@ -255,48 +236,15 @@ wx.request({
       XXshowstatus:'hide'
     })
   },
+
   itemNavigateToAns: function (e) {
 
-
-    // input = "string", language = "English", type = Words || sentences, onShowMethod = "list&result"
-    //  input: 用户的查询输入
-    //  language: 判断输入的是中文还是英文
-    //  type: 要查的是单词还是句子
-    //  onshowmethod: list&result  查询的结果返回的格式是候选框，还是结果页？
-    //
-    //
-    //
-    /*
-wx.request({        
-      url: 'yixueshuyuzhushou.club/', //仅为示例
-      data: {                          
-        input: '',                    // 用户输入的查询值
-        language: '',                 // 输入的语言，English & Chinese
-        searchType:'',                // 想要查词还是查句子，words & sentences,回调的json数据不一样。
-        onShowMethod:''               // 是在下拉列表list里面展示，还是开一个新的页面展示，回调的json数据都不同。
-     },
-     header: {
-       'content-type': 'application/json'
-    },
-  success: function(res) { //请求成功后的回调函数，res为请求内容
-    //...在这里把获得的json数据，用JS绑定到界面上
-  },
-  fail: function(res){
-    //...记录失败信息
-  },
-   complete: function(res){
-    //.. debug for use
-   }
-
-})
-  
-     */
     //获取列表中每个候选项目的字符串数据，用来传递页面参数
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
     var str = list[index].input;
     //list[index].input就是当前点击的列表项，index代表第n个
-    console.log(str);
+  
     //参数跳转方法
     var navENtoCNwords = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
     var navCNtoENwords = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
@@ -304,9 +252,10 @@ wx.request({
 
     var inputHasEnglish = util.CountIfEnglishWord(str);
     var inputHasChinese = util.CountIfChineseWord(str);
+
     if (inputHasEnglish){
     wx.navigateTo({
-      url: navENtoCNwords,
+      url: navCNtoENwords,
     })
     }else if (inputHasChinese){
       wx.navigateTo({

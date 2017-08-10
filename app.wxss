@@ -71,7 +71,7 @@ z-index:99;
 /**控制顶端搜索词语结果的大块**/
 #searchResult{
   position: fixed;
-  max-height: 500rpx;
+  max-height: 700rpx;
   width:100%;
   background-color:#fff;
   z-index:8;
@@ -80,7 +80,7 @@ z-index:99;
 /**每一个显示结果的一个小条目**/
 .item{
   display: flex;
-  height:100rpx;
+  height:130rpx;
   border:1px solid #eee;
 }
 
@@ -91,17 +91,17 @@ z-index:99;
   margin-left:40rpx;
   margin-right:0px;
   font-size:36rpx;
-  
+  line-height: 125%;
   overflow:hidden;
 }
 /**右的显示格式**/
 .searchRight{
-  font-size:28rpx;
+  font-size:32rpx;
   margin:22rpx;
   line-height:150%;
   width:380rpx;
   overflow:hidden;
-  color:#aaa;
+  color:#666;
 }
 
 .linedown{
@@ -110,14 +110,24 @@ z-index:99;
   padding-bottom: 20rpx;
   border-bottom:1px solid #ddd;
 }
-.big{
+.huge{
+  font-size: 64rpx;
+}
+.large{
   font-size: 48rpx;
 }
+.big{
+  font-size: 40rpx;
+}
+
 .medium{
-  font-size:32rpx;
+  font-size:36rpx;
 }
 .small{
   font-size:28rpx;
+}
+.tiny{
+  font-size:24rpx;
 }
 .show{
   transition-duration: 1s;

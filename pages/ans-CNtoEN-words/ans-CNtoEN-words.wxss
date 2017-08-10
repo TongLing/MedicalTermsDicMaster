@@ -2,7 +2,6 @@
 
 
 #searchResult{
-
   position: fixed;
   height:750rpx;
   width:100%;
@@ -13,6 +12,35 @@
   display:block;
 }
 
+.results{
+   
+   margin:10rpx;
+}
+
+.left{
+  width:auto;
+  padding:10rpx;
+  height:auto;
+  overflow:hidden;
+  
+}
+
+.main{
+  border-bottom:1px solid #F9F9F9;
+}
+
+.right{
+  width:auto;
+  padding:10rpx;
+  height:auto;
+  overflow:hidden;
+  
+}
+.source{
+  text-align: right;
+  color:#999;
+  margin-bottom: 10rpx;
+}
 
 .hide{
   display: none;
