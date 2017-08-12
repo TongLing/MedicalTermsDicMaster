@@ -2,7 +2,7 @@
 
 
 var news = [
-  {
+/*  {
     "photoURL": "../../img/news-510c2dgx1z.png",
     "head": "【数据接口】英国超市里的标签和促销标语",
     "content": "你究竟有几个小秘密？最新研究.."
@@ -17,10 +17,10 @@ var news = [
     "head": "王者荣耀真·最强管控：小学生每天只能玩1小时啦~~",
     "content": "数据接口——双语资讯:发霉啦系列"
   },
+  */
 ];
 
 function getNews() {
-  console.log(news);
   return news;
 }
 function setNews(str) {

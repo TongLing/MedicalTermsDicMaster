@@ -12,6 +12,7 @@ function formatTime(date) {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
+
 //过滤字符串中无用字符，只留下汉字或字母，直接调用，需要依赖后面trimRight,trimLeft,stripTrim三个函数。
 function trim(s) {
   return stripTrim(trimRight(trimLeft(s)));
@@ -103,7 +104,7 @@ function input_is_valid(str){
   }
   
   //英文字符数量大于3 且没有'符号时，可以通过
-  if (str.length >= 3 && CountIfChineseWord(str)==false && str.indexOf("'") == -1)
+  if (str.length >= 2 && CountIfChineseWord(str)==false && str.indexOf("'") == -1)
   {
     //console.log("英文字符数量大于3 且没有'符号时，可以通过");
     return true;

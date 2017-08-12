@@ -14,7 +14,7 @@ Page({
  */
 data: {
     input:'',
-    result: [{ "input": "1", "output": "2", "source": "3" }, { "input": "4", "output": "5", "source": "6" }],
+    result: [],
 
     //搜索框部分
     opacity: '1.0', //输入时的遮罩层透明度
@@ -40,7 +40,6 @@ onLoad: function (query) {
         "query": query.input,
       },
       success: res => {
-
         var list = [];
         if (typeof (res.data) == "string") {
           //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
@@ -249,8 +248,6 @@ navigateToAns: function (e) {
   //给新页面传递参数
   var navENtoCNwords = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
   var navCNtoENwords = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
-  var navCNtoENsentences = "../ans-CNtoEN-sentences/ans-CNtoEN-sentences?input=" + str;
-  var navEntoCNsentences = "../ans-ENtoCN-sentences/ans-ENtoCN-sentences?input=" + str;
   var nav404 = "../404/404?input=" + str;
   /**开始跳转页面 */
   if (pageType == "ERROR") {

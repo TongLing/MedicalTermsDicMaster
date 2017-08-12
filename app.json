@@ -2,11 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/ans-CNtoEN-words/ans-CNtoEN-words",
-    "pages/develop/develop",
     "pages/ans-ENtoCN-words/ans-ENtoCN-words",
     "pages/logs/logs",
-    "pages/ans-CNtoEN-sentences/ans-CNtoEN-sentences",
-    "pages/ans-ENtoCN-sentences/ans-ENtoCN-sentences",
     "pages/404/404"
   ],
   "window": {

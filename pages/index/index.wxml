@@ -13,7 +13,6 @@
 </scroll-view>
 
 <view class="container" id="contain" bindtap="recover" style="background-color: {{bgcolor}}; opacity: {{opacity}}">
-
   <view bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">欢迎，{{userInfo.nickName}}！</text>
@@ -31,37 +30,14 @@
     </view>
   </view>
 
-  
+<!--  
   <view class="box">
     <view class="linedown small">
       <text>学术翻译必备词汇</text>
     </view>
-    <view class="textbox big" style="color:white">
-      <text>{{mottoEN}}</text>
-    </view>
-    <view class="textbox medium"style="color:white">
-      <text>{{mottoCN}}</text>
-    </view>
+
   </view>
-
-
-<!-- 
-  <view class="box">
-    <view class="linedown small"> <text>双语资讯</text> </view>
-
-  <view wx:for="{{news}}" class="unit" wx:key="id">
-    <view class="left"> <image src="{{item.photoURL}}"></image> </view>
-      <view class="right"> 
-        <view class="up medium"> <text>{{item.head}} </text> </view>
-        <view class="down small"> <text>{{item.content}}</text> </view>
-      </view>
-    </view>
-  </view>
-
-  <view class="box">
-    <view class="linedown small"> <text>待添加的内容</text> </view>
-    <view class="textbox">  <text>{{mottoEN}}</text> </view>
-    <view class="textbox small"> <text>需要添加额外的内容的话，可以放在这里</text>  </view>
-  </view>
+  
 -->
 </view>
+

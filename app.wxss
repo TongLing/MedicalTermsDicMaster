@@ -4,6 +4,7 @@
 .container {
 margin-top: 180rpx;
 padding-top: 50rpx;
+min-height: 1000rpx;
 } 
 
 .fall {
@@ -71,6 +72,7 @@ z-index:99;
 /**控制顶端搜索词语结果的大块**/
 #searchResult{
   position: fixed;
+  min-height:700rpx;
   max-height: 700rpx;
   width:100%;
   background-color:#fff;
@@ -124,7 +126,7 @@ z-index:99;
   font-size:36rpx;
 }
 .small{
-  font-size:28rpx;
+  font-size:32rpx;
 }
 .tiny{
   font-size:24rpx;

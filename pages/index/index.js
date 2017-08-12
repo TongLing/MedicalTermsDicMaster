@@ -25,10 +25,8 @@ Page({
     userInfo: {},//头像和昵称相关信息
     mottoEN: '',
     mottoCN: '',
-    
+  
     news: [], //双语资讯部分的内容
-
-    //不知道这个变量是干嘛的，但是一删了这个变量就会出bug
   },
   onLoad: function () {
     //每日一句部分更新
@@ -214,8 +212,6 @@ Page({
     //给新页面传递参数
     var navENtoCNwords = "../ans-ENtoCN-words/ans-ENtoCN-words?input=" + str;
     var navCNtoENwords = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
-    var navCNtoENsentences = "../ans-CNtoEN-sentences/ans-CNtoEN-sentences?input=" + str;
-    var navEntoCNsentences = "../ans-ENtoCN-sentences/ans-ENtoCN-sentences?input=" + str;
     var nav404 = "../404/404?input=" + str;
     if (pageType == "ERROR"){
       wx.navigateTo({
