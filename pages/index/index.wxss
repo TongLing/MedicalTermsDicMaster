@@ -3,8 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:50rpx;
-     
+  padding:80rpx;
+   
+  border-bottom:20rpx solid #f1eff2;
+
 }
 
 .userinfo-avatar {
@@ -18,36 +20,50 @@
   padding-top: 30rpx;
   color: #aaa;     
 }
+.wrapper{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+}
 
 /**双语资讯那一栏，每个小新闻的整个包裹块*/
 .unit{
-  margin-bottom: 5rpx;
   font-size:28rpx;
     display: flex;
    flex-direction:row;
    flex-wrap:nowrap;
    justify-content:center;
+   
 }
 
 /***双语资讯那一栏，左右分块的写法**/
-.left{
-  width:250rpx;
-  height:150rpx;
-  margin:10rpx;
-  overflow:hidden;
-  border: 1px solid black;
+.keyword{
+  width:225rpx;
+  height:140rpx;
+  border-left: 1rpx solid #ebebeb;
+  border-right: 1rpx solid #ebebeb;
+  border-bottom: 1rpx solid #ebebeb;
+  text-align: center; 
+  line-height:140rpx;
 }
-.right{
-  margin-top:12rpx;
+
+.more{
+
+  margin-top:30rpx;
   margin-left:20rpx;
   margin-right:20rpx;
-  margin-bottom: 10rpx;
-  height:156rpx;
-  width:450rpx;
-  overflow: hidden;
-
+  margin-bottom: 30rpx;
+  color:#999;
 }
-
+.change{
+  
+  margin-top:30rpx;
+  margin-left:20rpx;
+  margin-right:20rpx;
+  margin-bottom: 30rpx;
+  color:#999;
+}
 /**右边一块上，下的写法**/
 .up{   
 
@@ -57,7 +73,7 @@
   padding-bottom:15rpx;
   height:89rpx;
   overflow: hidden;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1rpx solid #ccc;
 }
 .down{
 

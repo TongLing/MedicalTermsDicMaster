@@ -134,7 +134,7 @@ onfocus: function (e) {
 offfocus: function () {
   this.setData({
     opacity: '1.0',
-    bgcolor: '#fff',
+    bgcolor: '',
     XXshowstatus:'hide'
   })
 },
@@ -236,7 +236,7 @@ cancelInput: function () {
 recover: function () {
   this.setData({
     opacity: '1.0',
-    bgcolor: '#fff',
+    bgcolor: '',
     showstatus: 'hide'
   })
 },

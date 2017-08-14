@@ -17,6 +17,7 @@ Page({
     
     //候选框部分
     list: [],  //候选框内容，输入时根据输入内容自动变化
+    keywords: [{ message: '阳气', }, { message: '心血' }, { message: '肝火' }, { message: '症状', }, { message: '头痛' }, { message: '浓缩丸' }, { message: '中药', }, { message: '大麦' }, { message: '人中' }, { message: '天麻', }, { message: '火罐' }, { message: '针眼' }, { message: '补血', }, { message: '元气' }, { message: '穴位' }],
     showstatus: 'hide',   //候选框隐藏和出现的状态    
     itemcolor: '#fff', //按下每个词语时，变换选中背景色
 
@@ -49,6 +50,13 @@ Page({
       })
     })
   },
+  changeKeywords:function (e){
+    var keywords = jsonSource.getKeywords();
+    keywords = jsonSource.getRandomArrayElements(keywords, 15);
+    this.setData({
+      keywords:keywords
+    });
+  },
   start: function (e) { //开始触摸候选栏的信息时，改变颜色
     var txtStyle = "background-color:#f3f3f3";
     var index = e.currentTarget.dataset.index;
@@ -56,6 +64,24 @@ Page({
     list[index].txtStyle = txtStyle;
     this.setData({ 
       list: list //重新渲染界面
+    });
+  },
+  keywordstart:function(e){
+    var txtStyle = "background-color:#f3f3f3";
+    var index = e.currentTarget.dataset.index;
+    var keywords = this.data.keywords;
+    keywords[index].txtStyle = txtStyle;
+    this.setData({
+      keywords: keywords //重新渲染界面
+    });
+  },
+  keywordend: function (e) {
+    var txtStyle = "";
+    var index = e.currentTarget.dataset.index;
+    var keywords = this.data.keywords;
+    keywords[index].txtStyle = txtStyle;
+    this.setData({
+      keywords: keywords //重新渲染界面
     });
   },
   end: function (e) {
@@ -119,8 +145,6 @@ Page({
     //根据输入情况，自动判断是否弹出选择框
     var showstatus = css.ChangeListStatus(str);
     //动态加载里面的list，加载的方法根据传递的字符串决定 
-    
-
     if (util.input_is_valid(str)){
       if(util.CountIfEnglishWord(str)==false){
         wx.request({
@@ -205,7 +229,6 @@ Page({
   },
   //跳转到查词结果页面
   navigateToAns: function (e) {
-
     var str = e.detail.value;
     str = util.trim(str); //过滤多余空格
     var pageType = pageSkip.getResultType(str);
@@ -233,8 +256,17 @@ Page({
     })
   },
 
+  keywordNavigate:function(e){
+    var index = e.currentTarget.dataset.index;
+    var keywords = this.data.keywords;
+    var str = keywords[index].message;
+    var navCNtoENwords = "../ans-CNtoEN-words/ans-CNtoEN-words?input=" + str;
+    wx.navigateTo({
+      url: navCNtoENwords,
+    })
+  },
   itemNavigateToAns: function (e) {
-
+    console.log(e);
     //获取列表中每个候选项目的字符串数据，用来传递页面参数
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
@@ -268,6 +300,12 @@ Page({
       bgcolor: '#fff',
       showstatus: 'hide',
       XXshowstatus: 'hide'
+    })
+  },
+  moreDialogues:function(e){
+    var url = "../NewsList/NewsList?input=dialogues";
+    wx.navigateTo({
+      url: url,
     })
   }
 })

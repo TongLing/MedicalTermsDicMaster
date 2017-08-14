@@ -1,10 +1,4 @@
-<!--ans-CNtoEN-sentences.wxml-->
-<!--
-<view style="text-align:center;padding:50rpx;font-size:36rpx">
-<text >啊哦，程序员GG正在建设这个页面，句子英译中的功能以后说不定会有用哦</text>
-<button type ="primary" bindtap="back">返回上一页</button>
-</view>
--->
+<!--NewsInfo.wxml-->
 
 <view class="section" id="topSearch">
   <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
@@ -21,21 +15,7 @@
 
 
 <view class="container" id="contain" style="background-color: {{bgcolor}}; opacity: {{opacity}};" bindtap="recover">
-  <view class="Chineseword">
-    {{input}}
-  </view>
-  <view class="box">    
-    <view class="linedown small">
-      <text>常用释义</text>
-    </view>
-    <view wx:for="{{result}}" wx:key="{{index}}" class="results" data-index="{{index}}" >
-      <view class ="main">
-        <view class ="left medium">{{item.input}}</view> 
-        <view class = "right medium">{{item.output}}</view> 
-        <view class ="source tiny"> {{item.source}}</view> 
-      </view>
-    </view>
-  </view>
-  
-  <view class = "bottom-note tiny">没有更多内容了</view>
+NewsInfo.wxml
+
+<view class="linedown">openinfo</view>
 </view>

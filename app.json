@@ -1,15 +1,19 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/NewsList/NewsList",
+      "pages/NewsInfo/NewsInfo",
+    
     "pages/ans-CNtoEN-words/ans-CNtoEN-words",
-    "pages/ans-ENtoCN-words/ans-ENtoCN-words",
     "pages/logs/logs",
     "pages/404/404"
+ 
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4189de",
-    "navigationBarTitleText": "医学术语助手",
+    "navigationBarTitleText": "医学术语词典",
     "navigationBarTextStyle": "white"
   }
 }

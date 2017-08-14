@@ -4,7 +4,7 @@
 .container {
 margin-top: 180rpx;
 padding-top: 50rpx;
-min-height: 1000rpx;
+min-height: 1200rpx;
 } 
 
 .fall {
@@ -14,10 +14,9 @@ z-index:99;
 } 
 /**查词框框**/
 .input{
-  border: 1px solid #ccc;
   padding: 30rpx;
   margin: 30rpx;
-  border-radius:10rpx;
+  border-radius:15rpx;
   text-align: center;
   background-color:#fff;
   font-family: "arial","times","courier";
@@ -28,33 +27,44 @@ z-index:99;
   position: fixed;
   top: -1rpx;
   width:98%;
+  height:180rpx;
   background-color: #4189de;
   padding:10rpx;
   z-index: 10;      
 }
 /**每日一句中中英文的样式*/
 .textbox{
-  line-height: 125%;
+  line-height: 100rpx;
+  height:110rpx;
+  border-bottom:1rpx solid #ebebeb;
   color:#333;
-  margin:15rpx;
-  padding:5rpx;
+  padding:15rpx;
+  
   z-index: 0;
   font-size:32rpx;
   font-family: "arial","times","courier";
+  overflow: hidden;
 }
 
 /**最普通的给页面分块的box**/
 .box{
-  padding: 22rpx;
-  margin-top:5rpx;
-  margin-bottom: 5px;
+  padding: 30rpx;
   z-index:1;  
-
+  border-bottom:20rpx solid #f1eff2;
+  
 }
 /**聚焦在输入页面时可以把搜索状态叉掉**/
+#searchPos{
+  position:fixed;
+  padding: 30rpx;
+  margin-top:30rpx;
+  margin-left:200rpx;
+  margin-bottom: 30rpx;
+  z-index:100;
+}
 #searchCancel{
   position:fixed;
-    padding: 30rpx;
+  padding: 30rpx;
   margin-top:30rpx;
   margin-left:600rpx;
   margin-bottom: 30rpx;
@@ -108,9 +118,19 @@ z-index:99;
 
 .linedown{
   color:#aaa;
-  margin:10rpx;
-  padding-bottom: 20rpx;
-  border-bottom:1px solid #ddd;
+  margin-top:30rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  
+  padding-bottom: 30rpx;
+  border-bottom:1rpx solid #ebebeb;
+}
+
+.bottom-note{
+  text-align: center;
+  color:#aaa;
+  border: 30rpx solid #f1eff2;
+  background-color:#f1eff2;
 }
 .huge{
   font-size: 64rpx;

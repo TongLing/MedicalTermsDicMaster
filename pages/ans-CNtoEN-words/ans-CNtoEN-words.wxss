@@ -19,27 +19,33 @@
 
 .left{
   width:auto;
-  padding:10rpx;
+  padding-left:10rpx;
+  padding-right:10rpx;
+  padding-top:15rpx;
+  padding-bottom:5rpx;
   height:auto;
   overflow:hidden;
   
-}
-
-.main{
-  border-bottom:1px solid #F9F9F9;
 }
 
 .right{
   width:auto;
-  padding:10rpx;
+  padding-left:10rpx;
+  padding-right:10rpx;
+  padding-top:5rpx;
+  padding-bottom:15rpx;
   height:auto;
   overflow:hidden;
   
 }
+.main{
+  border-bottom:1px solid #F9F9F9;
+}
+
 .source{
   text-align: right;
   color:#666;
-  margin-bottom: 10rpx;
+  margin-bottom: 5rpx;
 }
 
 .hide{
@@ -57,6 +63,11 @@
 }
 
 .Chineseword{
-  padding-left:50rpx;
+  padding-left:45rpx;
+  padding-top:25rpx;
+  background-color: #fff;
+  height:100rpx;
+  line-height:50rpx;
   font-size:48rpx;
+  border-bottom: 20rpx solid #f1eff2;
 }
