@@ -14,7 +14,7 @@ Page({
     placeholdertxt: '点击查词', //搜索框的提示文本
     input: '',  //搜索框内容
     opacity: '1.0', //输入时，正文部分阴影的透明度
-    
+    hidden:true,
     //候选框部分
     list: [],  //候选框内容，输入时根据输入内容自动变化
     keywords: [{ message: '阳气', }, { message: '心血' }, { message: '肝火' }, { message: '症状', }, { message: '头痛' }, { message: '浓缩丸' }, { message: '中药', }, { message: '大麦' }, { message: '人中' }, { message: '天麻', }, { message: '火罐' }, { message: '针眼' }, { message: '补血', }, { message: '元气' }, { message: '穴位' }],
@@ -26,20 +26,23 @@ Page({
     userInfo: {},//头像和昵称相关信息
     mottoEN: '',
     mottoCN: '',
-  
+    dialogues :[],
     news: [], //双语资讯部分的内容
   },
   onLoad: function () {
+    var dialogues = jsonSource.getTopThreeDialogues();
+    var news = jsonSource.getTopThreeNews();
+    
     //每日一句部分更新
     var mottoEN = jsonSource.getDailySentence("EN");
     var mottoCN = jsonSource.getDailySentence("CN");
 
-    //新闻部分更新
-    var news  = jsonSource.getNews();
+  
     this.setData({
       mottoEN:mottoEN,
       mottoCN:mottoCN,
       news: news,
+      dialogues: dialogues,
     })
     var that = this;
     //调用应用实例的方法获取全局数据
@@ -75,6 +78,42 @@ Page({
       keywords: keywords //重新渲染界面
     });
   },
+  newsstart:function(e){
+    var txtStyle = "background-color:#f3f3f3";
+    var index = e.currentTarget.dataset.index;
+    var news = this.data.news;
+    news[index].txtStyle = txtStyle;
+    this.setData({
+      news: news //重新渲染界面
+    });
+  },
+  dialoguesstart:function(e){
+    var txtStyle = "background-color:#f3f3f3";
+    var index = e.currentTarget.dataset.index;
+    var dialogues = this.data.dialogues;
+    dialogues[index].txtStyle = txtStyle;
+    this.setData({
+      dialogues: dialogues //重新渲染界面
+    });
+  },
+  dialoguesend: function (e) {
+    var txtStyle = "";
+    var index = e.currentTarget.dataset.index;
+    var dialogues = this.data.dialogues;
+    dialogues[index].txtStyle = txtStyle;
+    this.setData({
+      dialogues: dialogues //重新渲染界面
+    });
+  },
+  newsend:function(e){
+    var txtStyle = "";
+    var index = e.currentTarget.dataset.index;
+    var news = this.data.news;
+    news[index].txtStyle = txtStyle;
+    this.setData({
+      news: news //重新渲染界面
+    });
+  },
   keywordend: function (e) {
     var txtStyle = "";
     var index = e.currentTarget.dataset.index;
@@ -94,6 +133,56 @@ Page({
     });
   },
   //事件处理函数
+  
+  gotoNewsContent:function(e){
+    this.setData({
+      hidden: false
+    })
+    var types = "news";
+    var index = e.currentTarget.dataset.index;
+    var num = this.data.news[index].index;
+    console.log(num);
+    var requestURL = "../NewsInfo/NewsInfo?types=" + types + "&num=" + num;
+    wx.navigateTo({
+      url: requestURL,
+    })
+    this.setData({
+      hidden: true
+    })
+  },
+  gotoNews: function (e){
+    this.setData({
+      hidden: false
+    })
+    var news = jsonSource.getTopThreeNews().slice(0,1);
+  
+    var types = "news";
+    var num = news[0].index;
+    var requestURL = "../NewsInfo/NewsInfo?types=" + types + "&num=" + num;
+    wx.navigateTo({
+      url: requestURL,
+    })
+    this.setData({
+      hidden:true
+    })
+  }
+  ,
+  gotoDialoguesContent: function (e) {
+    this.setData({
+      hidden: false
+    })
+    var types = "dialogues";
+    var index = e.currentTarget.dataset.index;
+    var num = this.data.dialogues[index].index;
+    console.log(num);
+    var requestURL = "../NewsInfo/NewsInfo?types=" + types + "&num=" + num;
+    wx.navigateTo({
+      url: requestURL,
+    })
+    this.setData({
+      hidden: true
+    })
+  },
 
   //1输入框获取焦点时修改首页下方遮罩层颜色
   onfocus: function (e) {
@@ -257,6 +346,9 @@ Page({
   },
 
   keywordNavigate:function(e){
+    this.setData({
+      hidden:false
+    })
     var index = e.currentTarget.dataset.index;
     var keywords = this.data.keywords;
     var str = keywords[index].message;
@@ -264,9 +356,14 @@ Page({
     wx.navigateTo({
       url: navCNtoENwords,
     })
+    this.setData({
+      hidden: true
+    })
   },
   itemNavigateToAns: function (e) {
-    console.log(e);
+    this.setData({
+      hidden: false
+    })
     //获取列表中每个候选项目的字符串数据，用来传递页面参数
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
@@ -299,13 +396,33 @@ Page({
       opacity: '1.0',
       bgcolor: '#fff',
       showstatus: 'hide',
-      XXshowstatus: 'hide'
+      XXshowstatus: 'hide',
+      hidden:true
     })
+
   },
   moreDialogues:function(e){
-    var url = "../NewsList/NewsList?input=dialogues";
+    this.setData({
+      hidden: false
+    })
+    var newsUrl = "../NewsList/NewsList?input=dialogues";
     wx.navigateTo({
-      url: url,
+      url: newsUrl,
+    })
+    this.setData({
+      hidden: true
+    })
+  },
+  moreNews: function (e) {
+    this.setData({
+      hidden: false
+    })
+    var newsUrl = "../NewsList/NewsList?input=news";
+    wx.navigateTo({
+      url: newsUrl,
+    })
+    this.setData({
+      hidden: true
     })
   }
 })

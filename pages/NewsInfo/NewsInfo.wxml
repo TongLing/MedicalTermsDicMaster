@@ -1,6 +1,8 @@
 <!--NewsInfo.wxml-->
 
 <view class="section" id="topSearch">
+
+  <icon type="search" class ="" id ="searchPos"/>
   <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
   <input placeholder="{{placeholdertxt}}" value="{{input}}" class="input" type="text" confirm-type="search" bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" />
 </view>
@@ -10,12 +12,30 @@
     <view class="searchLeft">{{item.input}}</view>
     <view class="searchRight">
       {{item.output}}</view>
+      
   </view>
 </scroll-view>
-
+ <loading hidden="false">
+        加载中...
+  </loading>
 
 <view class="container" id="contain" style="background-color: {{bgcolor}}; opacity: {{opacity}};" bindtap="recover">
-NewsInfo.wxml
+<view class ="wrapper" wx:for="{{news}}" wx:key= "{{index}}">
+    <view class = "headbox large">
+    <text>
+    {{item.title}}
+    </text>
+  </view>
+  <view class ="subhead small">
+    <text style="margin-right:50rpx;">{{item.time}}</text>
+    <text>{{item.author}}</text>
+  </view>
 
-<view class="linedown">openinfo</view>
+  <view class = "contentbox medium">
+    <text class = "content">{{item.content}}
+    </text>
+  </view>
+
+</view>
+  <view class = "bottom-note tiny">没有更多内容了</view>
 </view>

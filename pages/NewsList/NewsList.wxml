@@ -1,6 +1,10 @@
 <!--NewsList.wxml-->
 
 <view class="section" id="topSearch">
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+  <icon type="search" class ="" id ="searchPos"/>
   <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
   <input placeholder="{{placeholdertxt}}" value="{{input}}" class="input" type="text" confirm-type="search" bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" />
 </view>
@@ -20,7 +24,7 @@
 
 
     <view wx:for="{{dialogues}}" wx:key="{{index}}" class="textbox medium" 
-    bindtouchstart="keywordstart" bindtouchend="keywordend" bindtap="Navigate"
+    bindtouchstart="keywordstart" bindtouchend="keywordend" bindtap="navigate"
     data-index="{{index}}"  style="{{item.txtStyle}}">
     {{item.message}}
    </view>

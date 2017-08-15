@@ -14,8 +14,11 @@ Page({
   data: {
     input: '',
     result: [],
+    news: [
 
+    ],
     //搜索框部分
+    hidden:false,
     opacity: '1.0', //输入时的遮罩层透明度
     bgcolor: 'white', //遮罩层的颜色
     showstatus: 'hide',   //选择框隐藏和出现的状态
@@ -28,66 +31,38 @@ Page({
     itemcolor: '#fff', //按下每个词语时，变换选中背景色
   },
   //事件处理函数
-  onLoad: function (query) {
-    console.log(util.CountIfEnglishWord(query.input));
-    if (util.CountIfEnglishWord(query.input) == false) {
-      wx.request({
-        url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
-        data: {
-          "language": "Chinese",
-          "type": "sentence",
-          "query": query.input,
-        },
-        success: res => {
-          var list = [];
-          if (typeof (res.data) == "string") {
-            //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
-            var parse = util.clearBr(res.data);
-            list = JSON.parse(parse);
-            jsonSource.setSource(parse);
-          }
-          else {
-            //如果直接变成object的话，就可以直接用了
-            jsonSource.setSource(res.data);
-            list = res.data;
-          }
-
-          this.setData({
-            result: list,
-          })
-        }
-      })
-    } else {
-      wx.request({
-        url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
-        data: {
-          "language": "English",
-          "type": "sentence",
-          "query": query.input
-        },
-        success: res => {
-          var list = [];
-          if (typeof (res.data) == "string" && res.data != "") {
-            //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
-            var parse = util.clearBr(res.data);
-            list = JSON.parse(parse);
-            jsonSource.setSource(parse);
-          }
-          else {
-            //如果直接变成object的话，就可以直接用了
-            jsonSource.setSource(res.data);
-            list = res.data;
-          }
-          this.setData({
-            result: list,
-          })
-        }
-      })
-    }
-
+  onLoad: function (input) {
     this.setData({
-      //设定最上面的那个值
-      input: query.input,
+      hidden: false,
+    })
+    console.log(input.num);
+    console.log(input.types);
+    var types = input.types;
+    var num = input.num;
+    var loadURL = "https://99238208.yixueshuyuzhushou.club/new/json/"+types+"-"+num+".json";
+    console.log(loadURL);
+    
+    wx.request({
+      url: loadURL,
+      data: {
+      },
+      success: res => {
+        if (typeof (res.data) == "string") {
+          //拼接成的字符串如果是string的话，表明还有格式问题，丢到util里面解析一下
+          var parse = util.clearBr(res.data);
+          var news = JSON.parse(parse);
+          jsonSource.setSource(parse);
+        }
+        else {
+          //如果直接变成object的话，就可以直接用了
+          jsonSource.setSource(res.data);
+          var news = res.data;
+        }
+        this.setData({
+          news:news,
+
+        })
+      }
     })
   },
   back: function () {
@@ -240,7 +215,9 @@ Page({
     })
   },
   navigateToAns: function (e) {
-
+    this.setData({
+      hidden: true
+    })
     var str = e.detail.value;
     str = util.trim(str); //过滤多余空格
     var pageType = pageSkip.getResultType(str);
@@ -265,11 +242,14 @@ Page({
       opacity: '1.0',
       bgcolor: '#fff',
       showstatus: 'hide',
-      XXshowstatus: 'hide'
+      XXshowstatus: 'hide',
+      hidden:false
     })
   },
   itemNavigateToAns: function (e) {
-
+    this.setData({
+      hidden: false
+    })
     //获取列表中每个候选项目的字符串数据，用来传递页面参数
     var index = e.currentTarget.dataset.index;
     var list = this.data.list;
@@ -297,10 +277,12 @@ Page({
       })
     }
     this.setData({
+      input:'',
       opacity: '1.0',
       bgcolor: '#fff',
       showstatus: 'hide',
-      XXshowstatus: 'hide'
+      XXshowstatus: 'hide',
+      hidden:false
     })
   }
 })

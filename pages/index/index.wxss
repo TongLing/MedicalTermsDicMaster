@@ -1,21 +1,37 @@
 /**index.wxss**/
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding:80rpx;
-   
-  border-bottom:20rpx solid #f1eff2;
-
+  height:1060rpx;
+  position:relative;
 }
 
 .userinfo-avatar {
+position:relative;
   width: 128rpx;
   height: 128rpx;
   border-radius: 50%;
        
 }
-
+.title{
+  margin:2rpx;
+  position:absolute;
+  top: 620rpx;
+  left:80rpx;
+  color:#fff;
+}
+.everydayEN{
+  padding-top:40rpx;
+  padding-left:20rpx;
+  line-height:50rpx;
+  padding-bottom:10rpx;
+  padding-right:20rpx;
+}
+.everydayCN{
+  padding-top:10rpx;
+  padding-left:20rpx;
+  line-height:50rpx;
+  padding-bottom:40rpx;
+  padding-right:20rpx;
+}
 .userinfo-nickname {
   padding-top: 30rpx;
   color: #aaa;     
@@ -86,7 +102,8 @@
 }
 
 image{
-  width:230rpx;
-  height:150rpx;
+  filter: blur(5rpx) brightness(90%) saturate(120%);
+  width:750rpx;
+  height:1060rpx;
 }
 

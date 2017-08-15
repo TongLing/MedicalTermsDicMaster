@@ -64,7 +64,7 @@
 
 .Chineseword{
   padding-left:45rpx;
-  padding-top:25rpx;
+  padding-top:48rpx;
   background-color: #fff;
   height:100rpx;
   line-height:50rpx;

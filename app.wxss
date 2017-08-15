@@ -3,7 +3,7 @@
 /**包裹整个页面的view**/
 .container {
 margin-top: 180rpx;
-padding-top: 50rpx;
+padding-top: 18rpx;
 min-height: 1200rpx;
 } 
 
@@ -81,6 +81,7 @@ z-index:99;
 
 /**控制顶端搜索词语结果的大块**/
 #searchResult{
+  opacity: 0.95;
   position: fixed;
   min-height:700rpx;
   max-height: 700rpx;
@@ -119,8 +120,8 @@ z-index:99;
 .linedown{
   color:#aaa;
   margin-top:30rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
+  margin-left: 2rpx;
+  margin-right: 2rpx;
   
   padding-bottom: 30rpx;
   border-bottom:1rpx solid #ebebeb;
@@ -131,6 +132,10 @@ z-index:99;
   color:#aaa;
   border: 30rpx solid #f1eff2;
   background-color:#f1eff2;
+}
+
+.massive{
+  font-size:84rpx;
 }
 .huge{
   font-size: 64rpx;

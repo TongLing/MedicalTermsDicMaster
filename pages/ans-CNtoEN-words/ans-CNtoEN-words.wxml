@@ -7,6 +7,10 @@
 -->
 
 <view class="section" id="topSearch">
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+  <icon type="search" class ="" id ="searchPos"/>
   <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
   <input placeholder="{{placeholdertxt}}" value="{{input}}" class="input" type="text" confirm-type="search" bindfocus="onfocus" bindblur="offfocus" bindinput="inputchar" bindconfirm="navigateToAns" />
 </view>

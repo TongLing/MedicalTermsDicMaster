@@ -15,6 +15,7 @@ Page({
   data: {
     input: '',
     result: [],
+    hidden: true,
     dialogues: [],//搜索框部分
     opacity: '1.0', //输入时的遮罩层透明度
     bgcolor: 'white', //遮罩层的颜色
@@ -23,18 +24,26 @@ Page({
     placeholdertxt: '点击查词', //搜索框的提示文本
     //候选框部分
     list: [],  //候选框内容，输入时根据输入内容自动变化
-
+    parameter:"",
     itemcolor: '#fff', //按下每个词语时，变换选中背景色
   },
   //事件处理函数
   onLoad: function (query) {
     if(query.input == "dialogues") {
-      var dialogues = jsonSource.getDialogues();
+      var parameter = "dialogues";
+      var insert = jsonSource.getDialogues();
     }
-
+    else if(query.input =="news"){
+      var parameter = "news";
+      var insert = jsonSource.getNews();
+    }else{
+      var insert = [{  message: "没有找到任何列表" }]
+      console.error("Fail to find any insetions.");
+    }
     this.setData({
       //设定最上面的那个值
-      dialogues: dialogues,
+      dialogues: insert,
+      parameter:parameter
     })
   },
   back: function () {
@@ -231,6 +240,19 @@ Page({
       bgcolor: '#fff',
       showstatus: 'hide',
       XXshowstatus: 'hide'
+    })
+  },
+  navigate: function(e){
+    var parameter = this.data.parameter;  //dialogue 或者parameter
+
+    var index = e.currentTarget.dataset.index;  //从上往下数，第几个位置
+    console.log(parameter);
+    var types = parameter;
+    var num = this.data.dialogues[index].index; //列表的标号
+
+    var requestURL = "../NewsInfo/NewsInfo?types=" + types + "&num=" + num;
+    wx.navigateTo({
+      url: requestURL,
     })
   },
   itemNavigateToAns: function (e) {

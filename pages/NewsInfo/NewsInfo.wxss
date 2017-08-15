@@ -1,1 +1,31 @@
 /* NewsInfo.wxss */
+
+.contentbox{
+  margin:50rpx;
+}
+.content{
+  line-height: 180%;
+}
+.headbox{
+  margin-top:30rpx;
+  margin-left:50rpx;
+  margin-right:50rpx;
+  margin-bottom: 60rpx;
+}
+
+.author{
+  margin-left:50rpx;
+  margin-right: 50rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  color:#999;
+}
+.subhead{
+  margin-left:50rpx;
+  margin-right: 50rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  color:#999;
+}

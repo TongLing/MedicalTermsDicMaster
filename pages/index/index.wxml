@@ -1,4 +1,7 @@
 <!--index.html-->
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
 <view class="section" id="topSearch">
   <icon type="search" class ="" id ="searchPos"/>
   <icon type="clear" id="searchCancel" class="{{XXshowstatus}}" size="24" bindtap="cancelInput" />
@@ -15,18 +18,19 @@
   </view>
 </scroll-view>
 
-<view class="container" id="contain" bindtap="recover" style="background-color: {{bgcolor}}; opacity: {{opacity}}">
-  <view bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">欢迎，{{userInfo.nickName}}！</text>
+<view class="container" bindtap="recover" style="background-color: {{bgcolor}}; opacity: {{opacity}}">
+  <view bindtap="gotoNews" class="userinfo">
+    <image src="../../img/news-35.jpg" mode="aspectFill" style ="border:1rpx solid #ccc"></image>
 
+    <view class = "title massive">
+    <text style="line-height:120rpx;text-shadow:3rpx 2rpx 10rpx #000">第35期:\n泳池游泳要注意</text>
+    </view>
   </view>
 
   <view class="box">
     <view class="linedown small">
       <text>常用医学术语</text>
     </view>
-
   <view class="wrapper medium">
     <view wx:for="{{keywords}}" wx:key="{{index}}" class="keyword" 
     bindtouchstart="keywordstart" bindtouchend="keywordend"
@@ -39,22 +43,17 @@
 
     </view>
 
-
   <view class="box">
     <view class="linedown small">
       <text>医学英语新闻</text>
     </view>
-    <view class="textbox medium">
-      <text>第76期：情人节——关注心脏</text>
-    </view>
-        <view class="textbox medium">
-      <text>第75期：系安全带可避免儿童..</text>
-    </view>
-    <view class="textbox medium">
-      <text>第74期：隐形眼镜的正确护理</text>
+    <view wx:for="{{news}}" wx:key="{{index}}" class="textbox medium" 
+    data-index="{{index}}" bindtouchstart="newsstart" bindtouchend="newsend"
+    bindtap = "gotoNewsContent" style="{{item.txtStyle}}">
+      <text>{{item.message}}</text>
     </view>
 
-  <button class="more small" bindtap="moreDialogues">更多</button>
+  <button class="more small" bindtap="moreNews">更多</button>
   </view>
 
 
@@ -63,16 +62,10 @@
     <view class="linedown small">
       <text>口语会话</text>
     </view>
-    <view class="textbox medium">
-      <text>【医院口语会话】吸氧治疗</text>
-    </view>
-    
-    <view class="textbox medium">
-      <text>【医院口语会话】测量体温</text>
-    </view>
-    
-    <view class="textbox medium">
-      <text>【医院口语会话】给病人输血</text>
+    <view wx:for="{{dialogues}}" wx:key="{{index}}" class="textbox medium" 
+    data-index="{{index}}" bindtouchstart="dialoguesstart" bindtouchend="dialoguesend"
+    bindtap = "gotoDialoguesContent" style="{{item.txtStyle}}">
+      <text>{{item.message}}</text>
     </view>
     
   <button class="more small" bindtap="moreDialogues">更多</button>
@@ -83,21 +76,12 @@
     <view class="linedown small">
       <text>每日一句</text>
     </view>
-    <view class="textbox big">
+    <view class="everydayEN medium">
       <text>{{mottoEN}}</text>
-    </view>
-    <view class="textbox medium">
+      </view>
+      <view class="everydayCN medium">
       <text>{{mottoCN}}</text>
-    </view>
+  </view>
   </view>
   <view class = "bottom-note tiny">没有更多内容了</view>
-  <!--  
-  <view class="box">
-    <view class="linedown small">
-      <text>学术翻译必备词汇</text>
-    </view>
-
-  </view>
-  
--->
 </view>

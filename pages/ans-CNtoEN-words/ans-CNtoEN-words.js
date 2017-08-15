@@ -15,7 +15,7 @@ Page({
 data: {
     input:'',
     result: [],
-
+    hidden:false,
     //搜索框部分
     opacity: '1.0', //输入时的遮罩层透明度
     bgcolor: 'white', //遮罩层的颜色
@@ -30,8 +30,11 @@ data: {
   },
 //事件处理函数
 onLoad: function (query) {
-
   if (util.CountIfEnglishWord(query.input) == false){
+
+    this.setData({
+      hidden: false
+    })
     wx.request({
       url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
       data: {
@@ -59,6 +62,10 @@ onLoad: function (query) {
       }
     })
   }else{
+
+    this.setData({
+      hidden: false
+    })
     wx.request({
       url: 'https://99238208.yixueshuyuzhushou.club/new/test.php',
       data: {
@@ -88,7 +95,8 @@ onLoad: function (query) {
 
   this.setData({
     //设定最上面的那个值
-    input: query.input,
+    hidden: true,
+    input: query.input
   })
 },
 back: function () {

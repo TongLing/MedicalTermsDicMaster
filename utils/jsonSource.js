@@ -1,27 +1,19 @@
 //jsonSource 操作数据的相关函数，还有用于存储初始化数据。
 
-var dialogues = [{ message: "【医院口语会话】吸氧治疗" }, { message: "【医院口语会话】测量体温" }, { message: "【医院口语会话】输血" }, { message: "【医院口语会话】体温监护" }, { message: "【医院口语会话】异常体温" }, { message: "【医院口语会话】验尿" }, { message: "【医院口语会话】护士和肺气肿病人谈话" }, { message: "【医院口语会话】验大便" }, { message: "【医院口语会话】填入院表" }, { message: "【医院口语会话】注射" }, { message: "【医院口语会话】挂号" }, { message: "【医学口语会话】药房" }, { message: "【医学口语会话】晕厥" }, { message: "【医学口语会话】社区" }, { message: "【医学口语会话】社区保健内容" }, { message: "【医学口语会话】保健一例" }, { message: "【医学口语会话】基层保健队" }, { message: "【医学口语会话】康复护理" }, { message: "【医学口语会话】康复保健队" }, { message: "【医学口语会话】暴怒性躁狂病" }, { message: "【医学口语会话】预防静脉治疗的并发症" }, { message: "【医学口语会话】烧伤" }, { message: "【医学口语会话】医生和孕妇谈话" }, { message: "【医学口语会话】护理程序的四个步骤" }, { message: "【医学口语会话】龋齿" }, { message: "【医学口语会话】牙髓炎" }, { message: "【医学口语会话】牙龈炎" }, { message: "【医学口语会话】摆脱孤独" }, { message: "【医学口语会话】病人的焦虑" }, { message: "【医学口语】医生护士英语会话:西药1" }, { message: "【医学口语】医生护士英语会话:西药2" }, { message: "【医学口语】医生护士英语会话:中药" }, { message: "【医学口语】医生护士英语会话:肚子痛" }, { message: "【医学口语】医生护士英语会话:交通事故" }, { message: "【医学口语】医生护士英语会话:堕胎" }, { message: "【医学口语】医生护士英语会话:患失眠症" }, { message: "【医学口语】医生护士英语会话:患流行性感冒" }, { message: "【医学口语】医生护士英语会话:内科" }, { message: "【医院英语会话】有点失眠" }, { message: "【医院口语会话】关于医药" }, { message: "【医院英语对话】关于中药" }, { message: "【医院口语会话】内科医生护士英语会话" }, { message: "【医院口语会话】出了交通事故" }, { message: "【医院口语会话】患流行性感冒" }, { message: "【医院口语会话】婴儿看医生" }, { message: "【医院口语会话】感冒" }, { message: "【医院口语会话】挂号及办公室工作" }, { message: "【医院口语会话】入院和出院" }, { message: "【医院口语会话】摆脱孤独" }, { message: "【医学口语会话】透视－Fluoroscopy" }, { message: "【医学口语会话】挂号及办公室工作" }, { message: "【医学口语会话】医患间的英语对话" }, { message: "【医学口语会话】病人和药剂师的谈话" }, { message: "【医学口语会话】入院和出院" }, { message: "【医学口语会话】医生病人英语对话1" }, { message: "【医学口语会话】医生病人英语对话2" }, { message: "【医学口语会话】医生病人英语对话3" }, { message: "【医学口语】医务英语会话：内科" }, { message: "【医学口语】医务英语会话：患流行性感冒" }, { message: "【医学口语】医务英语会话：患失眠症" }, { message: "【医学口语】医务英语会话：堕胎" }, { message: "【医学口语】医务英语会话：交通事故" }, { message: "【医学口语】医务英语会话：肚子痛" }, { message: "【医学口语】医务英语会话：中药" }, { message: "【医学口语】医务英语会话：西药" }, { message: "【医学口语】医务英语对话：护士长的作用" }, { message: "【医学口语】医生护士英语会话：为自己预约" }, { message: "【医学口语】医生护士英语会话：为家人预约" }, { message: "【医院口语会话】肚子痛" }, { message: "【医学口语会话】公平对待每一个人" }, { message: "【医学口语会话】老视眼和屈光不正" }, { message: "【医学口语会话】心肌梗塞" }, { message: "【医学口语会话】调解病人与其家属的关系" }, { message: "【医学口语会话】帮助病人摆脱烦恼" }, { message: "【医院口语会话】腹泻" }, { message: "【医院口语会话】十二指肠溃疡" }, { message: "【医院口语会话】查房" }, { message: "【医学口语会话】急性胰腺炎" }, { message: "【医院口语会话】急诊" }, { message: "【医院口语会话】输氧" }];
+var dialogues = [{ message: "【医院口语会话】有点失眠", index: "42" }, { message: "【医院口语会话】关于医药", index: "41" }, { message: "【医院口语对话】关于中药", index: "40" }, { message: "【医院口语会话】内科医生护士英语会话", index: "39" }, { message: "【医院口语会话】出了交通事故", index: "38" }, { message: "【医院口语会话】患流行性感冒", index: "37" }, { message: "【医院口语会话】婴儿看医生", index: "36" }, { message: "【医院口语会话】感冒", index: "35" }, { message: "【医院口语会话】挂号及办公室工作", index: "34" }, { message: "【医院口语会话】入院和出院", index: "33" }, { message: "【医院口语会话】摆脱孤独", index: "32" }, { message: "【医学口语会话】透视－Fluoroscopy", index: "31" }, { message: "【医学口语会话】挂号及办公室工作", index: "30" }, { message: "【医学口语会话】医患间的英语对话", index: "29" }, { message: "【医学口语会话】病人和药剂师的谈话", index: "28" }, { message: "【医学口语会话】入院和出院", index: "27" }, { message: "【医学口语会话】医生病人英语对话1", index: "26" }, { message: "【医学口语会话】医生病人英语对话2", index: "25" }, { message: "【医学口语会话】医生病人英语对话3", index: "24" }, { message: "【医学口语】医务英语会话：内科", index: "23" }, { message: "【医学口语】医务英语会话：患流行性感冒", index: "22" }, { message: "【医学口语】医务英语会话：患失眠症", index: "21" }, { message: "【医学口语】医务英语会话：堕胎", index: "20" }, { message: "【医学口语】医务英语会话：交通事故", index: "19" }, { message: "【医学口语】医务英语会话：肚子痛", index: "18" }, { message: "【医学口语】医务英语会话：中药", index: "17" }, { message: "【医学口语】医务英语会话：西药", index: "16" }, { message: "【医学口语】医务英语对话：护士长的作用", index: "15" }, { message: "【医学口语】医生护士英语会话：为自己预约", index: "14" }, { message: "【医学口语】医生护士英语会话：为家人预约", index: "13" }, { message: "【医院口语会话】肚子痛", index: "12" }, { message: "【医学口语会话】公平对待每一个人", index: "11" }, { message: "【医学口语会话】老视眼和屈光不正", index: "10" }, { message: "【医学口语会话】心肌梗塞", index: "9" }, { message: "【医学口语会话】调解病人与其家属的关系", index: "8" }, { message: "【医学口语会话】帮助病人摆脱烦恼", index: "7" }, { message: "【医院口语会话】腹泻", index: "6" }, { message: "【医院口语会话】十二指肠溃疡", index: "5" }, { message: "【医院口语会话】查房", index: "4" }, { message: "【医学口语会话】急性胰腺炎", index: "3" }, { message: "【医院口语会话】急诊", index: "2" }, { message: "【医院口语会话】输氧", index: "1" }];
 function getDialogues (){
   return dialogues;
 }
-var news = [
-/*  {
-    "photoURL": "../../img/news-510c2dgx1z.png",
-    "head": "【数据接口】英国超市里的标签和促销标语",
-    "content": "你究竟有几个小秘密？最新研究.."
-  },
-  {
-    "photoURL": "../../img/news-62jha31z.png",
-    "head": "原本是摇钱树，现在却让腾讯赔了140亿美元！",
-    "content": "雅思又双叒叕涨价！一年连涨四.."
-  },
-  {
-    "photoURL": "../../img/news-8394217ds.png",
-    "head": "王者荣耀真·最强管控：小学生每天只能玩1小时啦~~",
-    "content": "数据接口——双语资讯:发霉啦系列"
-  },
-  */
-];
+function getTopThreeDialogues(){
+  return dialogues.slice(0, 3);
+}
+var news = [{ message: "【医学英语】第35期:水池中的水", index: "35" }, { message: "【医学英语】第34期:安全带的重要性", index: "34" }, { message: "【医学英语】第33期:结肠直肠癌", index: "33" }, { message: "【医学英语】第32期:丧失记忆", index: "32" }, { message: "【医学英语】第31期:视力下降", index: "31" }, { message: "【医学英语】第30期:丙型乙肝", index: "30" }, { message: "【医学英语】第29期:增强体育锻炼", index: "29" }, { message: "【医学英语】第28期:哮喘", index: "28" }, { message: "【医学英语】第27期:免疫系统与疫苗", index: "27" }, { message: "【医学英语】第26期:烟草与香烟", index: "26" }, { message: "【医学英语】第25期:创造不同", index: "25" }, { message: "【医学英语】第24期:龋齿", index: "24" }, { message: "【医学英语】第23期:定期接种疫苗", index: "23" }, { message: "【医学英语】第22期:控制血压", index: "22" }, { message: "【医学英语】第21期:青少年怀孕", index: "21" }, { message: "【医学英语】第20期:二型糖尿病", index: "20" }, { message: "【医学英语】第19期:外伤性脑损伤", index: "19" }, { message: "【医学英语】第18期:目视前方", index: "18" }, { message: "【医学英语】第17期:行动起来", index: "17" }, { message: "【医学英语】第16期:GRE病菌泛滥", index: "16" }, { message: "【医学英语】第15期:园艺与健康", index: "15" }, { message: "【医学英语】第14期:文明与健康", index: "14" }, { message: "【医学英语】第13期:少盐低纳更健康", index: "13" }, { message: "【医学英语】第12期:哺乳", index: "12" }, { message: "【医学英语】第11期:接种疫苗", index: "11" }, { message: "【医学英语】第10期:食品安全", index: "10" }, { message: "【医学英语】第9期:患有精神疾病的吸烟者", index: "9" }, { message: "【医学英语】第8期:饮酒适度", index: "8" }, { message: "【医学英语】第7期:儿童肥胖", index: "7" }, { message: "【医学英语】第6期:先天缺陷", index: "6" }, { message: "【医学英语】第5期:宫颈癌", index: "5" }, { message: "【医学英语】第4期:女性豪饮", index: "4" }, { message: "【医学英语】第3期:隐形眼镜", index: "3" }, { message: "【医学英语】第2期:感染", index: "2" }, { message: "【医学英语】第1期:心脏年龄", index: "1" }];
+function getNews(){
+  return news;
+}
+function getTopThreeNews(){
+  return news.slice(0,3);
+}
 var keywords = [{ message: '中医' }, { message: '血精' }, { message: '白浊' }, { message: '头风' }, { message: '顺证' }, { message: '逆证' }, { message: '五善' }, { message: '心善' }, { message: '肝善' }, { message: '脾善' }, { message: '肺善' }, { message: '紫癜风' }, { message: '重舌' }, { message: '木舌' }, { message: '结连舌' }, { message: '口舌痰包' }, { message: '涎石' }, { message: '牙岩' }, { message: '白疕' }, { message: '天疱疮' }, { message: '阴黄' }, { message: '急黄' }, { message: '肝著' }, { message: '臌胀' }, { message: '肝痈' }, { message: '肝癌' }, { message: '近视' }, { message: '远视' }, { message: '老视' }, { message: '弱视' }, { message: '耳病' }, { message: '耳疖' }, { message: '耳疮' }, { message: '耳壳痰包' }, { message: '断耳疮' }, { message: '耳胀' }, { message: '面游风' }, { message: '粉刺' }, { message: '酒渣鼻' }, { message: '脱发' }, { message: '狂犬病' }, { message: '炭疽' }, { message: '麻风' }, { message: '梅毒' }, { message: '内伤发热' }, { message: '汗证' }, { message: '自汗' }, { message: '盗汗[病]' }, { message: '肾善' }, { message: '七恶' }, { message: '心恶' }, { message: '肺痹' }, { message: '痛风' }, { message: '尿血' }, { message: '谷疸' }, { message: '酒疸' }, { message: '风秘' }, { message: '疥疮' }, { message: '鸡眼' }, { message: '胼胝' }, { message: '痱子' }, { message: '皲裂疮' }, { message: '骨折' }, { message: '冷秘' }, { message: '中药' }, { message: '麻沸散' }, { message: '阴阳' }, { message: '阴阳学说' }, { message: '阳气' }, { message: '阴气' }, { message: '心血' }, { message: '扭伤' }, { message: '断裂伤' }, { message: '氟骨病' }, { message: '异物梗喉' }, { message: '喉瘤' }, { message: '喉菌' }, { message: '龋齿' }, { message: '堕胎' }, { message: '颈椎病' }, { message: '肺气' }, { message: '肺阴' }, { message: '肺阳' }, { message: '妊娠' }, { message: '胎孕' }, { message: '产育' }, { message: '分娩' }, { message: '小产' }, { message: '伤食' }, { message: '嗜偏食' }, { message: '筋伤' }, { message: '筋断' }, { message: '阳气' }, { message: '神疲' }, { message: '乏力' }, { message: '腰酸' }, { message: '腰重' }, { message: '心血' }, { message: '肝火' }, { message: '症状' }, { message: '久疟' }, { message: '麻毒' }, { message: '脾气实' }, { message: '脾实热' }, { message: '脾寒' }, { message: '脾热' }, { message: '瘴毒' }, { message: '内伤' }, { message: '五劳' }, { message: '七伤' }, { message: '七情' }, { message: '五志过极' }, { message: '五志化火' }, { message: '瘴疟' }, { message: '热瘴' }, { message: '冷瘴' }, { message: '霍乱' }, { message: '鼠疫' }, { message: '肉行' }, { message: '头痛' }, { message: '浓缩丸' }, { message: '中药' }, { message: '大麦' }, { message: '人中' }, { message: '天麻' }, { message: '火罐' }, { message: '针眼' }, { message: '补血' }, { message: '元气' }, { message: '穴位' }];
 function getNews() {
   return news;
@@ -209,5 +201,7 @@ module.exports = {
   setNews:   setNews,
   getKeywords: getKeywords,
   getRandomArrayElements: getRandomArrayElements,
-  getDialogues: getDialogues
+  getDialogues: getDialogues,
+  getTopThreeDialogues: getTopThreeDialogues,
+  getTopThreeNews: getTopThreeNews
 }
