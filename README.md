@@ -2,6 +2,10 @@
  
 ### 简介
 
+微信扫码使用我的小程序：
+![images1](http://img.blog.csdn.net/20171018073846226?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGxvbmxpbmU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+
 医学术语助手是一个微信小程序，主要用于中医学专业术语的翻译查询，目前正处于开发阶段。
 
 利用微信小程序即用即走的框架开发，程序非常轻量化，运行方便。
