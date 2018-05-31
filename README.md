@@ -30,6 +30,32 @@
   
   * 双语例句：以中文句子中出现的关键词为筛选标准，展示3个与中文关键词相关的双语例句。
 
+
+### Scanning WeChat to use my program:
+
+The medical terminology assistant is a WeChat applet, which is mainly used for the translation and inquiry of Chinese medical terminology. It is currently in the development stage.
+
+Using the WeChat applet to use the framework that is ready to go, the program is very lightweight and easy to operate.
+
+The program has 5 official dictionaries built in it, with accurate descriptions of nearly 50,000 terms in Chinese medicine terms.
+
+The WFAS World Federation of Acupuncture and Moxibustion Societies recognizes the translation of terms in Chinese medicine
+A list of nouns in traditional Chinese medicine approved by the Chinese Traditional Chinese Medicine Nomenclature Committee
+WHO WHO identified English translation
+The Translation of Medical Terms into English by the State Administration of Taxation
+The work of British scholar Nigel wiseman
+The function being developed:
+
+Word association function. When entering a word in the search box, for the user's input, the program should provide feedback on the current page and display the candidate word.
+
+The program searches for the word in the current dictionary. If this word is included, three columns are displayed in the results screen:
+
+The pronunciation of the word: provides Chinese pinyin.
+
+English translation of words: If there are multiple English results corresponding to Chinese words, all English results must be returned.
+
+The keywords appearing in the Chinese sentences are used as screening criteria, and 3 bilingual sentences related to Chinese keywords are shown.
+
 ### 开发者指南： 该程序的开发运行方法：
 
 1. 下载或克隆本项目到本地目录。
@@ -37,6 +63,7 @@
 2. 点击这里下载[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)
 
 3. 打开微信开发者工具。在AppID一栏，直接选择"无AppID"，在项目目录一栏，选择 MedicalTermsDicMaster 文件夹所在目录，项目名称可以自选。
+
 
 ![images1](http://img.blog.csdn.net/20170630141709486?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGxvbmxpbmU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
