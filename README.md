@@ -1,10 +1,12 @@
 #  医学术语助手  MedicalTermsDicMaster
  
-### 简介
+
 
 NOTE: This app is no longer maintained. While the application is still available at Wechat mini program market, some functions might not function correctly. The service will be terminated at 01/01/2020.
 
 目前这个小程序已经不再维护。目前小程序在微信列表中还可以搜索到。程序中可能存在一些新出现的bug，导致查询失效。在2020年1月1日医学术语助手将从微信商城下架，正式停止服务。
+
+### 快速使用/Quickstart
 
 To use my application, open Wechat app and "scan" the QR-code below:
 
@@ -12,6 +14,7 @@ To use my application, open Wechat app and "scan" the QR-code below:
 
 ![images1](http://img.blog.csdn.net/20171018073846226?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGxvbmxpbmU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
+### 简介/Intro
 
 医学术语助手是一个微信小程序，主要用于中医学专业术语的翻译查询。
 
