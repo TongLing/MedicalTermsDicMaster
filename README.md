@@ -2,7 +2,7 @@
  
 ### 简介
 
-NOTE: This app is no longer maintained. While the application is still available at mini program market, some functions might not function correctly. The service will be terminated in 01/01/2020.
+NOTE: This app is no longer maintained. While the application is still available at Wechat mini program market, some functions might not function correctly. The service will be terminated in 01/01/2020.
 
 目前这个小程序已经不再维护。目前小程序在微信列表中还可以搜索到。程序中可能存在一些新出现的bug，导致查询失效。在2020年1月1日将从微信商城下架，正式停止该服务。
 
